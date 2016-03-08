@@ -1,0 +1,21 @@
+<ion-header-bar class="bar-energized">
+  <h2 class="title">More Details</h2>
+</ion-header-bar>
+
+<ion-view>
+  <ion-content>
+    <ion-list class="list-inset">
+      <ion-item class="item-text-wrap"
+        ng-repeat="item in videos | filter: {vimeoId: whichVideo}">
+        <iframe ng-src="{{$sce.trustAsResourceUrl(&apos;https://player.vimeo.com/video/&apos; + item.vimeoId)}}" width="80" height="80" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+        <p><a href="https://vimeo.com/157349623"></a><a href="https://vimeo.com/user49530969"></a><a href="https://vimeo.com"></a></p>
+          <h2>{{item.title}}</h2>
+          <h4>Level: {{item.level}} Style: {{item.style}}</h4>
+          <h4>Time: {{item.time}} minutes Focus: {{item.focus}}</h4>
+          <p>{{item.description}}</p>
+
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

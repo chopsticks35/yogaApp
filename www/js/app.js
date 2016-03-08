@@ -31,6 +31,17 @@ angular.module('starter', ['ionic'])
       abstract: true,
       templateUrl: 'templates/tabs.html'
     })
+
+  //  home page routing - no need for controller on home page
+    .state('tabs.home', {
+    url: '/home',
+    views: {
+      'home-tab': {
+        templateUrl: 'templates/home.html'
+      }
+    }
+  })
+
 //  subtemplate/child of tabs - this one load up a view that has template and controller
     .state('tabs.list', {
       url: '/list',
@@ -41,15 +52,27 @@ angular.module('starter', ['ionic'])
         }
       }
     })
-//  default routing back to tab list - will load tabs and list navigation
-  $urlRouterProvider.otherwise('/tab/list');
+
+//  child of tabs template - same controller
+    .state('tabs.detail', {
+    url: '/list/:videoId',
+    views: {
+      'list-tab': {
+        templateUrl: 'templates/detail.html',
+        controller: 'ListController'
+      }
+    }
+  })
+//  default routing back to home page - will load tabs and list navigation
+  $urlRouterProvider.otherwise('/tab/home');
 })
 
 //list controller
-.controller('ListController', ['$sce', '$scope', '$http', function($sce, $scope, $http){
+.controller('ListController', ['$sce', '$scope', '$http', '$state', function($sce, $scope, $http, $state){
   $http.get('js/videos.json').success(function(data){
       //connect data to videos variable
       $scope.videos = data;
+      $scope.whichVideo = $state.params.videoId;
 
       // delete item connect to click event
       $scope.deleteItem = function(item) {

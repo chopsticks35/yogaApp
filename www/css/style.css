@@ -1,13 +1,37 @@
-/* Empty. Add your own CSS if you like */
 .star>.item-content {
-  background-color: #c6c1b2 !important;
+  background-color: #EEE8D6 !important;
 }
 
-iframe {
-  margin-left: 0;
-  padding-left; 0;
+.video-text {
+  display: inline;
 }
 
-.item-thumbnail-right >.pics {
-margin-left: 0;
+.splash {
+  background: url(../img/background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
+
+.brand {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.brand img {
+  margin: 0 auto;
+  width: 40%;
+  max-width: 200px;
+  text-align: center;
+}
+
+.brand p {
+  font-size: 15px;
+}
+
+.tagline  {
+  font-size: 20px;
+}
+
+

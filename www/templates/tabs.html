@@ -1,7 +1,15 @@
 <ion-tabs class="tabs-icon-top tabs-dark">
+
+  <!--    home page tab   -->
+  <ion-tab title="Home" icon="ion-home"
+           href="#/tab/home">
+    <ion-nav-view name="home-tab"></ion-nav-view>
+
   <!--  or: ion-android-phone-landscape for phone landscape icon-->
   <ion-tab title="Videos" icon="ion-film-marker"
     href="#/tab/list">
 <!--    load child template - app.js  -->
     <ion-nav-view name="list-tab"></ion-nav-view>
+
+
 </ion-tabs>

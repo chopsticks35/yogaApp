@@ -1,24 +1,23 @@
-  <ion-header-bar class="bar-positive">
+  <ion-header-bar class="bar-energized">
     <!--        delete button   -->
     <button class="button button-icon ion-minus-circled" ng-click="data.showDelete = !data.showDelete; data.showReorder = false;"></button>
-    <h2 class="title">Video List</h2>
+    <h2 class="title">Videos</h2>
     <!--         reorder button drag capability -->
     <button class="button button-icon ion-navicon" ng-click="data.showReorder = !data.showReorder; data.showDelete = false;"></button>
   </ion-header-bar>
   <div class="bar bar-subheader item-input-inset bar-light">
     <label class="item-input-wrapper">
       <i class="icon ion-search placeholder-icon"></i>
-      <input type="search" ng-model="query" placeholder="Search Library">
+      <input type="search" ng-model="query" placeholder="Search Videos">
     </label>
   </div>
   <ion-content class="has-subheader">
     <ion-refresher on-refresh="refreshList()">
     </ion-refresher>
     <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
-      <ion-item ng-class="{&apos;star&apos;:item.star}" ng-repeat="item in videos | filter: query" class="item-thumbnail-left item-icon-right item-text-wrap">
-
+      <ion-item ng-class="{'star':item.star}" ng-repeat="item in videos | filter: query" class="videos item item-thumbnail-left.item-complex item-icon-right item-text-wrap" href="#/tab/list/{{item.vimeoId}}">
         <!--            PICS    -->
-        <!--            <img ng-src="img/{{item.pic}}.jpg" alt="{{item.title}} Pic">-->
+<!--       <img ng-src="img/{{item.pic}}.jpg" alt="{{item.title}} Pic">-->
         <!--WRONG!!   <source src="img/{{item.pic}}.m4v" type="video/m4v">-->
 
         <!-- $sce works, but going to serve off vimeo instead
@@ -26,19 +25,18 @@
 <source src="{{$sce.trustAsResourceUrl('img/' + item.pic + m4v)}}" type="video/m4v">
 </video>
 -->
-
         <!--        THIS WORKS BUT NEED TO STYLE THUMBNAIL and set left-->
         <!--        TEST:     <p>{{item.vimeoId}}</p>-->
         <iframe ng-src="{{$sce.trustAsResourceUrl(&apos;https://player.vimeo.com/video/&apos; + item.vimeoId)}}" width="80" height="80" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
         <p><a href="https://vimeo.com/157349623"></a><a href="https://vimeo.com/user49530969"></a><a href="https://vimeo.com"></a></p>
 
-
-
+        <div class="video-text">
         <h2>{{item.title}}</h2>
-        <h4>Level: {{item.level}} Style: {{item.style}}</h4>
-        <h4>Time: {{item.time}} minutes Focus: {{item.focus}}</h4>
+        <h4>Level: {{item.level}}</h4>
+        <h4>Time: {{item.time}} minutes</h4>
         <p>{{item.description | limitTo: 80}}
-          {{item.description.length &gt; 150 ? &apos;&#x2026;&apos; : &apos;&apos;}}</p>
+          {{item.description.length > 150 ? '&hellip;' : '' }}</p>
+        </div>
 
         <!--        favorites star button  -->
         <button class="button button-clear icon ion-star button-balanced" ng-click="toggleStar(item)" ng-show="item.star"></button>
