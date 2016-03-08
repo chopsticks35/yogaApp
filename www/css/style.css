@@ -1,0 +1,13 @@
+/* Empty. Add your own CSS if you like */
+.star>.item-content {
+  background-color: #c6c1b2 !important;
+}
+
+iframe {
+  margin-left: 0;
+  padding-left; 0;
+}
+
+.item-thumbnail-right >.pics {
+margin-left: 0;
+}

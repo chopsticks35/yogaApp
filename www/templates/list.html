@@ -1,0 +1,51 @@
+  <ion-header-bar class="bar-positive">
+    <!--        delete button   -->
+    <button class="button button-icon ion-minus-circled" ng-click="data.showDelete = !data.showDelete; data.showReorder = false;"></button>
+    <h2 class="title">Video List</h2>
+    <!--         reorder button drag capability -->
+    <button class="button button-icon ion-navicon" ng-click="data.showReorder = !data.showReorder; data.showDelete = false;"></button>
+  </ion-header-bar>
+  <div class="bar bar-subheader item-input-inset bar-light">
+    <label class="item-input-wrapper">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="search" ng-model="query" placeholder="Search Library">
+    </label>
+  </div>
+  <ion-content class="has-subheader">
+    <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
+      <ion-item ng-class="{&apos;star&apos;:item.star}" ng-repeat="item in videos | filter: query" class="item-thumbnail-left item-icon-right item-text-wrap">
+
+        <!--            PICS    -->
+        <!--            <img ng-src="img/{{item.pic}}.jpg" alt="{{item.title}} Pic">-->
+        <!--WRONG!!   <source src="img/{{item.pic}}.m4v" type="video/m4v">-->
+
+        <!-- $sce works, but going to serve off vimeo instead
+<video width="200" height="100" controls>
+<source src="{{$sce.trustAsResourceUrl('img/' + item.pic + m4v)}}" type="video/m4v">
+</video>
+-->
+
+        <!--        THIS WORKS BUT NEED TO STYLE THUMBNAIL and set left-->
+        <!--        TEST:     <p>{{item.vimeoId}}</p>-->
+        <iframe ng-src="{{$sce.trustAsResourceUrl(&apos;https://player.vimeo.com/video/&apos; + item.vimeoId)}}" width="80" height="80" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+        <p><a href="https://vimeo.com/157349623"></a><a href="https://vimeo.com/user49530969"></a><a href="https://vimeo.com"></a></p>
+
+
+        <h2>{{item.title}}</h2>
+        <h4>Level: {{item.level}} Style: {{item.style}}</h4>
+        <h4>Time: {{item.time}} minutes Focus: {{item.focus}}</h4>
+        <p>{{item.description | limitTo: 109}}
+          {{item.description.length &gt; 150 ? &apos;&#x2026;&apos; : &apos;&apos;}}</p>
+
+        <!--        favorites star button  -->
+        <button class="button button-clear icon ion-star button-balanced" ng-click="toggleStar(item)" ng-show="item.star"></button>
+        <!--            favorites swipe button  -->
+        <ion-option-button class="button-balanced" ng-click="toggleStar(item)"><i class="icon ion-star"></i></ion-option-button>
+        <!--            delete button -->
+        <ion-delete-button class="ion-minus-circled" ng-click="deleteItem(item)"></ion-delete-button>
+        <!--             reorder button -->
+        <ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
