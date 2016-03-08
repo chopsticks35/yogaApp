@@ -53,7 +53,7 @@ angular.module('starter', ['ionic'])
       }
     })
 
-//  child of tabs template - same controller
+//  SUB PAGE: child of tabs template - same controller
     .state('tabs.detail', {
     url: '/list/:videoId',
     views: {
@@ -63,15 +63,51 @@ angular.module('starter', ['ionic'])
       }
     }
   })
+
+//  NEW PAGE: calendar - sep controller
+    .state('tabs.calendar', {
+    url: '/calendar',
+    views: {
+      'calendar-tab': {
+        templateUrl: 'templates/calendar.html',
+        controller: 'CalendarController'
+      }
+    }
+  })
+
 //  default routing back to home page - will load tabs and list navigation
   $urlRouterProvider.otherwise('/tab/home');
 })
 
+//calendar controller
+  .controller('CalendarController', ['$sce', '$scope', '$http', '$state', function($sce, $scope, $http, $state){
+    $http.get('js/data.json').success(function(data){
+      $scope.calendar = data.calendar;
+
+      // delete calendar item - nested array
+      $scope.deleteItem = function(dayIndex, item) {
+        $scope.calendar[dayIndex].schedule.splice($scope.calendar[dayIndex].schedule.indexOf(item), 1);
+      }
+
+      $scope.refreshList = function() {
+        $http.get('js/data.json').success(function(data) {
+          $scope.calendar = data.calendar;
+          $scope.$broadcast('scroll.refreshComplete');
+        });
+      }
+
+      $scope.toggleStar = function(item){
+        item.star = !item.star;
+      }
+
+    })
+  }])
+
 //list controller
 .controller('ListController', ['$sce', '$scope', '$http', '$state', function($sce, $scope, $http, $state){
-  $http.get('js/videos.json').success(function(data){
+  $http.get('js/data.json').success(function(data){
       //connect data to videos variable
-      $scope.videos = data;
+      $scope.videos = data.videos;
       //add params id for subpage
       $scope.whichVideo = $state.params.videoId;
       //correct button functionality - set to false
@@ -85,8 +121,8 @@ angular.module('starter', ['ionic'])
       }
 
       $scope.refreshList = function() {
-        $http.get('js/videos.json').success(function(data) {
-          $scope.videos = data;
+        $http.get('js/data.json').success(function(data) {
+          $scope.videos = data.videos;
           $scope.$broadcast('scroll.refreshComplete');
         });
       }

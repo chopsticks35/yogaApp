@@ -11,7 +11,7 @@
 <!--    <h2 class="title">Videos</h2>-->
   <ion-nav-buttons side="secondary">
     <!--     reorder button drag capability placed right -->
-    <button class="button button-icon ion-navicon" ng-click="data.showReorder = !data.showReorder; data.showDelete = false;"></button>
+    <button class="button button-icon ion-arrow-swap" ng-click="data.showReorder = !data.showReorder; data.showDelete = false;"></button>
   </ion-nav-buttons>
 <!--  </ion-header-bar>-->
   <div class="bar bar-subheader item-input-inset bar-light">
@@ -36,7 +36,7 @@
 -->
         <!--        THIS WORKS BUT NEED TO STYLE THUMBNAIL and set left-->
         <!--        TEST:     <p>{{item.vimeoId}}</p>-->
-        <iframe ng-src="{{$sce.trustAsResourceUrl(&apos;https://player.vimeo.com/video/&apos; + item.vimeoId)}}" width="80" height="80" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+        <iframe ng-src="{{$sce.trustAsResourceUrl(&apos;https://player.vimeo.com/video/&apos; + item.vimeoId)}}" width="100" height="100" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
         <p><a href="https://vimeo.com/157349623"></a><a href="https://vimeo.com/user49530969"></a><a href="https://vimeo.com"></a></p>
 
         <div class="video-text">
@@ -54,7 +54,7 @@
         <!--            delete button -->
         <ion-delete-button class="ion-minus-circled" ng-click="deleteItem(item)"></ion-delete-button>
         <!--             reorder button -->
-        <ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+        <ion-reorder-button class="ion-arrow-swap" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
       </ion-item>
     </ion-list>
   </ion-content>
