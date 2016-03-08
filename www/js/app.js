@@ -72,7 +72,12 @@ angular.module('starter', ['ionic'])
   $http.get('js/videos.json').success(function(data){
       //connect data to videos variable
       $scope.videos = data;
+      //add params id for subpage
       $scope.whichVideo = $state.params.videoId;
+      //correct button functionality - set to false
+      $scope.data = { showDelete: false,
+                      showReorder: false
+                    };
 
       // delete item connect to click event
       $scope.deleteItem = function(item) {
