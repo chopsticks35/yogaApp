@@ -1,0 +1,346 @@
+<ion-view>
+
+    <ion-header-bar class="bar-positive">
+      <!--          in header - buttons take on header styling-->
+      <button class=" icon ion-navicon button button-clear"></button>
+      <!--        class title centers     -->
+      <h1 class="title">On-the-Go Yoga with Ti</h1>
+      <!--          or override with other proerties -->
+      <button class=" icon ion-home button "></button>
+    </ion-header-bar>
+
+
+    <!--        use tabs to create buttonsin footer - see tabs sect in CSS and JS documentation - use JS when sorking with anhgular-->
+    <!--        <div class="tabs tabs-calm">-->
+    <!--   also look like android: and more control <div class="tabs-striped tabs-background-calm tabs-color-light">-->
+
+    <!--            can also use <i> tag and icons-->
+    <a class="tab-item">Home</a>
+    <a class="tab-item">About</a>
+    <a class="tab-item">Calendar</a>
+    <!--            style using js and ng - use ion like custom direectives in ng       -->
+    <!--        <ion-tabs class="tabs-icon-top">-->
+
+
+    <!--
+<a class="tab-item"><i class="icon ion-home"></i></a>
+<a class="tab-item"><i class="icon ion-person"></i></a>
+<a class="tab-item"><i class="icon ion-calendar"></i></a>
+-->
+    <!--            more useful in dev when controlling with angular        -->
+
+    <!--            also can add badgesand styling of badges      -->
+
+    <!--
+<ion-tab badge="1" badge-style="badge-assertive" icon="ion-home" title="Home"></ion-tab>                <ion-tab icon="ion-person" title="About"></ion-tab>-->
+    <!--          <ion-tab icon="ion-calendar" title="Calendar"></ion-tab>-->--&gt;
+    --&gt;
+
+    <!--
+
+-->
+    <!--        </ion-tabs>-->
+    <!--        </div>-->
+    <!--
+<div class="bar bar-subheader">
+class title centers
+<h2 class="title">Sub Header</h2>
+</div>
+<ion-content class="padding has-subheader">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+-->
+    <!--          can also use a anchor and href with button      -->
+    <!--          button-block full lenght of container                  -->
+    <!--          also button small and large           -->
+    <!--
+<button class="button">Click me!</button>
+<button class="button button-small">Click me!</button>
+<button class="button button-outline button-large">Click me!</button>
+<button class="button button-block">Click me!</button>
+<button class="button button-block button-royal">Click me!</button>
+<button class="button button-clear">Click me!</button>
+-->
+
+    <!--          ionic icons as buttons          -->
+    <!--          can do with i tag icon - <i> or -->
+    <!--          omit - <p><Button class="icon ion-lock-combination button button-royal">open me></button></p>     -->
+    <!--          can also use icon-left etc to move around, add padding to move icon in rel to button -->
+    <!--
+<p><button class=" button button-royal"><i class="icon icon-right ion-lock-combination"> open me</i>
+</button></p>
+-->
+
+    <!--          for button bar - in the content body - for footer use tabs-->
+    <div class="button-bar">
+      <button class="icon ion-social-twitter button button-calm button-clear"></button>
+      <!--
+<button class="icon ion-social-facebook button button-positive button-clear"></button>
+<button class="icon ion-social-youtube button button-assertive button-clear"></button>
+</div>
+
+
+</ion-content>
+-->
+
+      <ion-footer-bar class="bar-positive">
+        <a class="tab-item"><i class="icon ion-home"></i></a>
+        <a class="tab-item"><i class="icon ion-person"></i></a>
+        <a class="tab-item"><i class="icon ion-calendar"></i></a>
+      </ion-footer-bar>
+
+      <!--        content section for lists -->
+      <ion-content>
+
+        <div class="list list-inset">
+          <!--          <div class="card">-->
+          <div class="item item-divider">Welcome</div>
+          <div class="item item-image item-body">
+            <img src="img/logo.jpg" alt="Item Img">
+            <p>&quot;True yoga is not about the shape of your body, but the shape of your life.&quot;
+
+            </p>
+          </div>
+          <div class="item item-icon-left item-text-wrap">
+            <i class="icon ion-home&gt;"></i>
+            &#x201C;Yoga is not to be performed; yoga is to be lived. Yoga doesn&#x2019;t care about what you have been; yoga cares about the person you are becoming.
+
+            Yoga is designed for a vast and profound purpose, and for it to be truly called yoga, its essence must be embodied.&#x201D;
+          </div>
+          <div class="list">
+            <label class="item item-input">
+              <span class="input-label">First Name</span>
+              <input type="text" placeholder="Your first name">
+            </label>
+            <!--              also stacked and floating options for label and inset class list-->
+            <label class="item item-input">
+              <span class="input-label">Last Name</span>
+              <input type="text" placeholder="Your last name">
+            </label>
+          </div>
+
+          <div class="item item-input-inset">
+            <label class="item-input-wrapper">
+              <input type="email" placeholder="enter your email">
+            </label>
+          </div>
+          <!-- text area and check boxes - check boxes can check many vs radio buttons
+<label class="item item-input">
+<textarea placeholder="Your message"></textarea>
+</label>
+-->
+          <div class="item item-checkbox">
+            <label class="checkbox">
+              <input type="checkbox">
+            </label>
+            <span class="input-label">Subscribe to newsletter!</span>
+          </div>
+
+          <!-- RADIO BUTTONS - select only one
+<div class="item item-divider">Favorite Social Media</div>
+
+<ion-list class="item item-radio">
+<ion-radio>
+<div class="item-content">Facebook</div>
+</ion-radio>
+</ion-list>
+
+<label class="item item-radio">
+<input type="radio" name="social">
+<div class="item-content">Twitter
+<i class="ion-social-twitter radio-icon"></i>
+</div>
+</label>
+-->
+          <!--            toggle button interface-->
+
+          <div class="item item-toggle">
+            <span class="input-label">Receive inspirational texts from Ti</span>
+            <label class="toggle">
+              <input type="checkbox">
+              <div class="track"><div class="handle"></div></div>
+            </label>
+          </div>
+
+          <!--            range example-->
+
+          <div class="item range range-balanced">
+            <i class="icon ion-sad-outline"></i>
+            <input type="range" name="feeling" min="0" max="100" value="50">
+            <i class="icon ion-happy"></i>
+          </div>
+
+          <!--            select pop up example-->
+          <label class="item item-input item-select">
+            <span class="input-label">Favorite Asana</span>
+            <select>
+              <option>Warrior Series</option>
+              <option>Arm Balances</option>
+              <option>Seated Series</option>
+            </select>
+
+          </label>
+
+
+
+          <!--            <div class="item isubmit buttons and item divider as footertem-input">-->
+          <button class="button button-full button-positive">Sign Up</button>
+        </div>
+
+
+        <div class="item">
+
+          <div class="g-hangout" data-render="createhangout"></div>
+          <span class="input-label">Connect with Ti</span>
+        </div>
+
+
+        <!-- Tok Box Script  and API-->
+        <div id="myPublisherDiv"></div>
+        <div id="subscribersDiv"></div>
+
+        <script src="//static.opentok.com/v2/js/opentok.min.js"></script>
+        <script>
+          var apiKey = '45509302';
+          var sessionId = '2_MX40NTUwOTMwMn5-MTQ1NjQyMTk1NjI1NX54dDhwc3hKQ1ZkL1Bkd1NmWFJuUElpRUZ-UH4';
+          var token = 'T1==cGFydG5lcl9pZD00NTUwOTMwMiZzaWc9M2M1MWVlOGM4MDNjMzBjODBhOWQ5OWJlYzhhZTQ1NjM1OTcwMWY3MTpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTJfTVg0ME5UVXdPVE13TW41LU1UUTFOalF5TVRrMU5qSTFOWDU0ZERod2MzaEtRMVprTDFCa2QxTm1XRkp1VUVscFJVWi1VSDQmY3JlYXRlX3RpbWU9MTQ1Njk1Njc0MCZub25jZT0wLjkyMTE0ODU3MTM4ODM0OTQmZXhwaXJlX3RpbWU9MTQ1NzA0MzE0MA==';
+          var session = OT.initSession(apiKey, sessionId);
+          session.on({
+            streamCreated: function(event) {
+              session.subscribe(event.stream, 'subscribersDiv', {insertMode: 'append'});
+            }
+          });
+          session.connect(token, function(error) {
+            if (error) {
+              console.log(error.message);
+            } else {
+              session.publish('myPublisherDiv', {width: 320, height: 240});
+            }
+          });
+        </script>
+
+        <div class="item item-divider">
+          <p>
+            Copyright &#xA9; 2016 by Ti: The Coding Yogini.  All rights reserved.
+          </p>
+        </div>
+
+
+        <!--            fist can just use list and item with ul and li for easy css listing-->
+        <!--
+<ul class="list">
+<li class="item">Item1</li>
+<li class="item">Item2</li>
+<li class="item">Item3</li>
+<li class="item">Item4</li>
+<li class="item">Item5</li>
+<li class="item">Item6</li>
+<li class="item">Item7</li>
+<li class="item">Item8</li>
+<li class="item">Item9</li>
+<li class="item">Item10</li>
+<li class="item">Item11</li>
+<li class="item">Item12</li>
+<li class="item">Item13</li>
+<li class="item">Item14</li>
+<li class="item">Item15</li>
+<li class="item">Item16</li>
+<li class="item">Item17</li>
+<li class="item">Item18</li>
+<li class="item">Item19</li>
+<li class="item">Item20</li>
+<li class="item">Item21</li>
+<li class="item">Item22</li>
+<li class="item">Item23</li>
+<li class="item">Item24</li>
+<li class="item">Item25</li>
+</ul>
+-->
+
+        <!--            can also do with divs same as ul but with href now clickable...a little better  -->
+        <!--
+<div class="list">
+<a href="#" class="item item-icon-left">
+-->
+        <!--                    can als add icons icon left to make bigger-->
+        <!--                    <i class="icon ion-email"></i>-->
+        <!--
+Check mail</a>
+<a href="#" class="item item-icon-left">
+-->
+        <!--                    can als add icons icon left to make bigger-->
+        <!--
+<i class="icon ion-chatbubble-working"></i>
+Chat</a>
+-->
+        <!--                addd on both sides  -->
+        <!--                <a href="#" class="item item-icon-left item-icon-right">-->
+        <!--                    can als add icons icon left to make bigger-->
+        <!--
+<i class="icon ion-chatbubble-working"></i>
+Chat</a>
+
+-->
+        <!--                <a href="#" class="item item-icon-left">-->
+        <!--
+can als add icons icon left to make bigger
+<i class="icon ion-mic-a"></i>Listen
+-->
+        <!--                    add note on side of item-->
+        <!--
+<span class="item-note">
+Record</span></a>
+
+<a href="#" class="item">item 4<span class="badge badge-assertive">
+3
+</span></a>
+<a href="#" class="item item-button-right">item 5<button class="button button-assertive"><i class="icon ion-person"></i>
+
+</button>
+
+</a>
+
+-->
+        <!--                avatar      -->
+        <!--
+<a href="#" class="item item-avatar">item 6
+<img src="https://s.yimg.com/fz/api/res/1.2/5YQCOl9.t.lqVTMPU6PLSA--/YXBwaWQ9c3JjaGRkO2g9NzY4O3E9OTU7dz0xMDI0/http://www.visoflora.com/images/original/dahlia-visoflora-5504.jpg" alt="Avatar"></a>
+-->
+
+        <!--                thumbnail - also state where you want it          -->
+        <!--
+<a href="#" class="item item-thumbnail-left">
+<img src="https://s.yimg.com/fz/api/res/1.2/5YQCOl9.t.lqVTMPU6PLSA--/YXBwaWQ9c3JjaGRkO2g9NzY4O3E9OTU7dz0xMDI0/http://www.visoflora.com/images/original/dahlia-visoflora-5504.jpg" alt="Avatar">
+<h2>Headline</h2>
+<p>Here is some text hdhroakro neknrekidm anjdnnnm msm eeo owr jroeweij fnfdsj snfndm nfd nfmd,s nmdms, nmdf,s,smndnfmdm,s,smfn</p>
+</a>
+-->
+
+
+        <!--         make headline, just replace or add one div  and use item-divider   -->
+        <!--
+<div class="item item-divider">Headline 1</div>
+<a href="#" class="item">item</a>
+<a href="#" class="item">item</a>
+<a href="#" class="item">item</a>
+<a href="#" class="item">item</a>
+<a href="#" class="item">item</a>
+<a href="#" class="item">item</a>
+<a href="#" class="item">item</a>
+<a href="#" class="item">item</a>
+<a href="#" class="item">item</a>
+<a href="#" class="item">item</a>
+<a href="#" class="item">item</a>
+<a href="#" class="item">item</a>
+<a href="#" class="item">item</a>
+<a href="#" class="item">item</a>
+<a href="#" class="item">item</a>
+</div>
+-->
+
+        <!--            cards section       -->
+
+      </ion-content>
+
+
+
+</ion-view>

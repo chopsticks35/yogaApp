@@ -1,11 +1,9 @@
-.star>.item-content {
-  background-color: #EEE8D6 !important;
+/*  body - finger cursor for most */
+body {
+  cursor: url('http://ionicframework.com/img/finger.png');
 }
 
-.video-text {
-  display: inline;
-}
-
+/*  home page tab */
 .splash {
   background: url(../img/background.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -22,16 +20,67 @@
 .brand img {
   margin: 0 auto;
   width: 40%;
-  max-width: 200px;
+  max-width: 300px;
   text-align: center;
 }
 
 .brand p {
-  font-size: 15px;
+  margin-top: 10px;
+  font-size: 1rem;
 }
 
 .tagline  {
-  font-size: 20px;
+  font-size: 1.4rem;
+}
+
+/*  Video and Calendar Star background tabs */
+
+.star>.item-content {
+  background-color: #EEE8D6 !important;
+}
+
+/*  stylize color energized custom to orangish  */
+
+.bar-energized, tabs-energized>.tabs {
+  background-color: #e67e22 !important;
+  border-color:#e67e22;
+}
+
+/*  vieo page tab */
+
+/*  NEED TO FIX TEXT with IFRAME!*/
+.video-text {
+display: inline;
+border-radius: 10px;
+}
+
+
+/* want rounded edges on iframe - unsure??? */
+.item-thumbnail-left img {
+ border-radius: 10px;
+}
+
+/*  Calendar page tab  */
+
+.item-divider {
+  background-color: #EEE8D6;
+}
+
+.item h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #e67e22;
+}
+
+.dayhighlight {
+  background-color: #f2bd8e;
+  border-top: 20px solid #e67e22;
+}
+
+.dayhighlight h2 {
+  color: #e67e22;
+  font-size: 2rem;
+  font-weight: 200;
 }
 
 

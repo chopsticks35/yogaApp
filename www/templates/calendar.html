@@ -32,6 +32,12 @@
           <h4>{{item.style + ' Style Practice'}}</h4>
           <h4>{{item.description}}</h4>
 
+<!--            button for starring celendar events   -->
+            <button class="button button-clear icon ion-star button-energized" ng-click="toggleStar(item)" ng-show="item.star"></button>
+
+<!--            ionic buttons to swip eand delete    -->
+            <ion-option-button class="button-energized" ng-click="toggleStar(item)"><i class="icon ion-star"></i></ion-option-button>
+            <ion-option-button class="button-assertive" ng-click="deleteItem(dayIndex, item)"><i class="icon ion-trash-a"></i></ion-option-button>
         </ion-item>
       </ion-list>
 
