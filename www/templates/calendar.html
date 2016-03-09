@@ -1,0 +1,41 @@
+<ion-view view-title="Calendar">
+
+  <div class="bar bar-subheader item-input-inset bar-light">
+    <label class="item-input-wrapper">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="search" ng-model="query" placeholder="Search Calendar">
+    </label>
+  </div>
+
+  <ion-content class="has-subheader">
+
+<!--      normally would just do item in calendar in ng-repeat, but have two items here - nexted aray need to get index-->
+
+    <div class="day" ng-repeat="(dayIndex, day) in calendar">
+      <div class="item item-divider item-divider-energized">
+        {{day.weekday}}
+      </div><!--    item divider   -->
+      <div ng-show="day.studio" class="item item-list item-text-wrap dayhighlight">
+        <h2>{{day.studio}}</h2>
+        {{day.date}}
+      </div><!--   show studio   -->
+
+      <ion-list>
+        <ion-item ng-class="{'item-avatar':item.room,
+                            'star': item.star}"
+                  class="item-text-wrap item-icon-right"
+                  ng-repeat="item in day.schedule | filter: query"
+                  href="#">
+          <img ng-show="item.room" ng-src="img/{{item.pic}}.jpg" alt="{{item.room}} Pic" width="100" height="100">
+          <h2>{{item.time}}</h2>
+          <h3>Room: {{item.room}}<h3>
+          <h4>{{item.style + ' Style Practice'}}</h4>
+          <h4>{{item.description}}</h4>
+
+        </ion-item>
+      </ion-list>
+
+    </div><!--      repeat days  -->
+  </ion-content>
+
+</ion-view>

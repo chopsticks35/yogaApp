@@ -6,20 +6,17 @@
       "studio": "Oh Yeah Yoga Studio - Augusta, GA",
       "schedule": [
         {
+          "pic": "buddha",
           "time": "9:30-10:30am",
           "room": "Main Studio",
           "style": "Power Vinyasa",
           "description": "All levels, heated flow"
         }, {
+          "pic": "calm",
           "time": "12:30-1:30pm",
           "room": "Main Studio",
           "style": "Lunch Break",
           "description": "All levels, 45 min flow"
-        },{
-          "time": "6:30-8:00pm",
-          "room": "Main Studio",
-          "style": "Ashtanga",
-          "description": "All levels, primary series"
         }
       ]
     }, {
@@ -28,16 +25,19 @@
       "studio": "Space Yoga Studio - Augusta, GA",
       "schedule": [
         {
-          "time": "9:30-10:30am",
+          "pic": "clay",
+          "time": "8:30-10:00am",
           "room": "Main Studio",
-          "style": "Power Vinyasa",
+          "style": "Morning Vinyasa",
           "description": "All levels, heated flow"
         }, {
+          "pic": "door",
           "time": "12:30-1:30pm",
           "room": "Main Studio",
           "style": "Lunch Break",
           "description": "All levels, 45 min flow"
         },{
+          "pic": "heart",
           "time": "6:30-8:00pm",
           "room": "Main Studio",
           "style": "Ashtanga",
@@ -50,16 +50,13 @@
       "studio": "Oxygen Fitness Studio - Augusta, GA",
       "schedule": [
         {
-          "time": "9:30-10:30am",
-          "room": "Main Studio",
-          "style": "Power Vinyasa",
-          "description": "All levels, heated flow"
-        }, {
+          "pic": "life",
           "time": "12:30-1:30pm",
           "room": "Main Studio",
           "style": "Lunch Break",
           "description": "All levels, 45 min flow"
         },{
+          "pic": "velocity",
           "time": "6:30-8:00pm",
           "room": "Main Studio",
           "style": "Ashtanga",
@@ -72,16 +69,19 @@
       "studio": "Evans Fitness Club - Augusta, GA",
       "schedule": [
         {
+          "pic": "mermaid",
           "time": "9:30-10:30am",
           "room": "Main Studio",
           "style": "Power Vinyasa",
           "description": "All levels, heated flow"
         }, {
+          "pic": "wish",
           "time": "12:30-1:30pm",
           "room": "Main Studio",
           "style": "Lunch Break",
           "description": "All levels, 45 min flow"
         },{
+          "pic": "studio",
           "time": "6:30-8:00pm",
           "room": "Main Studio",
           "style": "Ashtanga",
