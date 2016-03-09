@@ -46,6 +46,16 @@ body {
   border-color:#e67e22;
 }
 
+.button.button-energized {
+  border-color: transparent;
+  background-color: #e67e22;
+  color: #fff;
+/*  need to fix big button but not side panel*/
+/*  border-radius: 10px;*/
+
+}
+
+
 /*  vieo page tab */
 
 /*  NEED TO FIX TEXT with IFRAME!*/
@@ -73,12 +83,12 @@ border-radius: 10px;
 }
 
 .dayhighlight {
-  background-color: #f2bd8e;
+  background-color: #e99041;
   border-top: 20px solid #e67e22;
 }
 
 .dayhighlight h2 {
-  color: #e67e22;
+  color: #fff;
   font-size: 2rem;
   font-weight: 200;
 }

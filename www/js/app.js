@@ -75,9 +75,28 @@ angular.module('starter', ['ionic'])
     }
   })
 
+  //  NEW PAGE: connect - sep controller
+    .state('tabs.connect', {
+    url: '/connect',
+    views: {
+      'connect-tab': {
+        templateUrl: 'templates/connect.html',
+        controller: 'ConnectController'
+      }
+    }
+  })
+
 //  default routing back to home page - will load tabs and list navigation
   $urlRouterProvider.otherwise('/tab/home');
 })
+
+//connect controller
+  .controller('ConnectController', ['$sce', '$scope', '$http', '$state', function($sce, $scope, $http, $state){
+    $http.get('js/user.json').success(function(data){
+      $scope.user = data;
+
+    })
+  }])
 
 //calendar controller
   .controller('CalendarController', ['$sce', '$scope', '$http', '$state', function($sce, $scope, $http, $state){

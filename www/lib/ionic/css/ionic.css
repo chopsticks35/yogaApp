@@ -8716,9 +8716,10 @@ progress {
         background-color: #33cd5f;
         box-shadow: none;
         color: #fff; }
+/*changed button color*/
   .button.button-energized {
     border-color: transparent;
-    background-color: #ffc900;
+    background-color: #e67e22;
     color: #fff; }
     .button.button-energized:hover {
       color: #fff;
