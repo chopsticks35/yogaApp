@@ -19,7 +19,8 @@
         <h2>{{day.studio}}</h2>
         {{day.date}}
       </div><!--   show studio   -->
-
+      <ion-refresher on-refresh="refreshList()">
+      </ion-refresher>
       <ion-list>
         <ion-item ng-class="{'item-avatar':item.room,
                             'star': item.star}"

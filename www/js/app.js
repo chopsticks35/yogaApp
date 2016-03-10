@@ -3,6 +3,10 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
+
+// NodeMailer-Mailgun Server-Side
+var SERVER_SIDE_URL = "https://git.heroku.com/agile-bastion-13984.git"
+
 angular.module('starter', ['ionic'])
 
   .run(function($ionicPlatform) {
@@ -22,6 +26,107 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+
+  .controller('DashCtrl', function($scope, $ionicLoading, $timeout, EmailManager) {
+
+  // send email, use as input $scope.MailData
+  initMailData();
+  $scope.sendMail = function() {
+    // validate
+    if($scope.MailData.senderEmail && $scope.MailData.senderName && $scope.MailData.receiverEmail) {
+
+      // send
+      showMessage('Sending...');
+      EmailManager.sendMail($scope.MailData).then(
+        function(success){
+          showMessage('Mail sent!', 1500);
+          initMailData();
+        },
+        function(error){
+          console.log(error);
+          showMessage('Oooops... something went wrong', 1500);
+        }
+      );
+
+    } else {
+
+      // notify the user
+      showMessage('Please fill in the required (*) fields', 2000);
+
+    };
+  };
+
+  // init maildata
+  function initMailData() {
+    $scope.MailData = {
+      senderName: "",
+      senderEmail: "",
+      receiverEmail: "tiwegmeyeryoga@gmail.com",
+      html: "", // optionally, add html formatting
+    };
+  };
+
+  // fn show loading dialog
+  function showMessage(optMessage, optTime){
+
+    // prepare the dialog content
+    var templateStr;
+    if(optTime != undefined) {templateStr = optMessage};
+    if(optMessage != undefined && optTime != undefined) {
+      templateStr = optMessage;
+    } else if(optMessage != undefined && optTime == undefined) {
+      templateStr = optMessage + '<br><br>' + '<ion-spinner icon="dots"></ion-spinner>';
+    } else {
+      templateStr = '<ion-spinner icon="dots"></ion-spinner>';
+    };
+
+    // prompt
+    $ionicLoading.show({
+      template: templateStr
+    });
+
+    // hide if input provided
+    if(optTime != undefined) {
+      $timeout(function(){
+        $ionicLoading.hide();
+      }, optTime)
+    };
+
+  };
+
+})
+
+  .factory('EmailManager', function($q, $http) {
+  var self = this;
+
+  /**
+  * Send Email
+  * @mailObj: object with properties
+  *      'senderName'
+  *      'senderEmail'
+  *      'receiverEmail'
+  *      'subject'
+  *      'html'
+  */
+  self.sendMail = function(mailObj) {
+    var qSend = $q.defer();
+    $http.post(SERVER_SIDE_URL + "/email/send", mailObj)
+      .success(
+      function(response){
+        qSend.resolve(response)
+      }
+    )
+      .error(
+      function(error){
+        qSend.reject(error);
+      }
+    );
+    return qSend.promise;
+  };
+
+  return self;
+})
+
 
 .config(function($stateProvider, $urlRouterProvider){
   $stateProvider
@@ -86,22 +191,65 @@ angular.module('starter', ['ionic'])
     }
   })
 
+
+  //  NEW PAGE: email - sep controller
+    .state('tabs.email', {
+    url: '/email',
+    views: {
+      'email-tab': {
+        templateUrl: 'templates/email.html',
+        controller: 'DashCtrl'
+      }
+    }
+  })
+
+  //  NEW PAGE: inpsirational text - sep controller
+    .state('tabs.inspiration', {
+    url: '/inspiration',
+    views: {
+      'inspiration-tab': {
+        templateUrl: 'templates/inspiration.html',
+//        controller: 'InspireCtrl'
+      }
+    }
+  })
+
+
 //  default routing back to home page - will load tabs and list navigation
   $urlRouterProvider.otherwise('/tab/home');
 })
 
-//connect controller
-  .controller('ConnectController', ['$sce', '$scope', '$http', '$state', function($sce, $scope, $http, $state){
+//  google hangouts factory
+
+.factory('hangoutFactory', [function(){
+   return {
+      ShowH : { show : false }   }
+ }])
+
+// hangout controller
+.controller('HangoutController', ['$sce', '$scope', 'hangoutFactory', '$http', '$state', function($sce, $scope, hangoutFactory, $http, $state){
     $http.get('js/user.json').success(function(data){
       $scope.user = data;
+      $scope.ShowH = hangoutFactory.ShowH.show;
+
+
+    })
+  }])
+
+//connect controller
+.controller('ConnectController', ['$sce', '$scope', 'hangoutFactory', '$http', '$state', function($sce, $scope, hangoutFactory, $http, $state){
+    $http.get('js/data.json').success(function(data){
+      $scope.users = data; // need to connect to users
+      $scope.ShowH = !hangoutFactory.ShowH.show;
 
     })
   }])
 
 //calendar controller
-  .controller('CalendarController', ['$sce', '$scope', '$http', '$state', function($sce, $scope, $http, $state){
+  .controller('CalendarController', ['$sce', '$scope', 'hangoutFactory','$http', '$state', function($sce, $scope, hangoutFactory, $http, $state){
     $http.get('js/data.json').success(function(data){
       $scope.calendar = data.calendar;
+      $scope.ShowH = hangoutFactory.ShowH.show;
 
       // delete calendar item - nested array
       $scope.deleteItem = function(dayIndex, item) {
@@ -123,7 +271,7 @@ angular.module('starter', ['ionic'])
   }])
 
 //list controller
-.controller('ListController', ['$sce', '$scope', '$http', '$state', function($sce, $scope, $http, $state){
+.controller('ListController', ['$sce', '$scope','hangoutFactory','$http', '$state', function($sce, $scope, hangoutFactory, $http, $state){
   $http.get('js/data.json').success(function(data){
       //connect data to videos variable
       $scope.videos = data.videos;
@@ -133,7 +281,7 @@ angular.module('starter', ['ionic'])
       $scope.data = { showDelete: false,
                       showReorder: false
                     };
-
+      $scope.ShowH = hangoutFactory.ShowH.show;
       // delete item connect to click event
       $scope.deleteItem = function(item) {
         $scope.videos.splice($scope.videos.indexOf(item), 1);

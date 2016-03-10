@@ -19,18 +19,21 @@ body {
 
 .brand img {
   margin: 0 auto;
-  width: 40%;
+  width: 25%;
   max-width: 300px;
   text-align: center;
 }
 
 .brand p {
-  margin-top: 10px;
-  font-size: 1rem;
+  margin-top: 5px;
+  font-size: .9rem;
+  font-style: italic;
+
 }
 
 .tagline  {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 /*  Video and Calendar Star background tabs */
@@ -68,6 +71,10 @@ border-radius: 10px;
 /* want rounded edges on iframe - unsure??? */
 .item-thumbnail-left img {
  border-radius: 10px;
+}
+
+.video-text h2 {
+  color: #e67e22;
 }
 
 /*  Calendar page tab  */

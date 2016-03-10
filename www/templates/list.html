@@ -1,11 +1,11 @@
 <!-- created global nav bar and back button so redoing header bar here-->
-<ion-view view-title="Videos">
+<ion-view hide-footer-bar="true" view-title="Videos">
 <!--  <ion-header-bar class="bar-energized">-->
 
 <!--  wrap buttons in ion nav buttons -->
   <ion-nav-buttons side="primary">
     <!--        delete button placed primary for left  -->
-    <button class="button button-icon ion-minus-circled" ng-click="data.showDelete = !data.showDelete; data.showReorder = false;"></button>
+    <button class="button button-icon icon ion-trash-a" ng-click="data.showDelete = !data.showDelete; data.showReorder = false;"></button>
   </ion-nav-buttons>
 <!--  replaced in ion view  -->
 <!--    <h2 class="title">Videos</h2>-->
@@ -40,7 +40,7 @@
         <p><a href="https://vimeo.com/157349623"></a><a href="https://vimeo.com/user49530969"></a><a href="https://vimeo.com"></a></p>
 
         <div class="video-text">
-        <h2>{{item.title}}</h2>
+          <h2>{{item.title}}</h2>
         <h4>Level: {{item.level}}</h4>
         <h4>Time: {{item.time}} minutes</h4>
         <p>{{item.description | limitTo: 80}}
@@ -52,9 +52,9 @@
         <!--            favorites swipe button  -->
         <ion-option-button class="button-energized" ng-click="toggleStar(item)"><i class="icon ion-star"></i></ion-option-button>
         <!--            delete button -->
-        <ion-delete-button class="ion-minus-circled" ng-click="deleteItem(item)"></ion-delete-button>
+        <ion-delete-button class="icon ion-trash-a" ng-click="deleteItem(item)"></ion-delete-button>
         <!--             reorder button -->
-        <ion-reorder-button class="ion-arrow-swap" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+        <ion-reorder-button class="icon ion-arrow-swap" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
       </ion-item>
     </ion-list>
   </ion-content>

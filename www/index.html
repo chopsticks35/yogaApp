@@ -28,12 +28,15 @@
     <ion-nav-bar class="bar-energized">
       <ion-nav-back-button></ion-nav-back-button>
     </ion-nav-bar>
+
     <ion-nav-view>
 
       <!--    Google hangouts   -->
-      <div class="item" ng-controll="hangout">
+<!--      <ion-footer-bar class="bar-subfooter"><div class="g-hangout" data-render="createhangout"></div></ion-footer-bar>-->
 
-        <div class="g-hangout" data-render="createhangout"></div>
+      <div class="item" ng-controller="HangoutController">
+        <div class="g-hangout" data-render="createhangout" ng-show="ShowH.show">
+        </div>
         <span class="input-label">Connect with Ti</span>
       </div>
 
