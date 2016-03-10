@@ -36,6 +36,10 @@ body {
   font-weight: bold;
 }
 
+.tagline h4 {
+  color: #fff;
+}
+
 /*  Video and Calendar Star background tabs */
 
 .star>.item-content {
