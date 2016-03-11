@@ -31,13 +31,13 @@ body {
 
 .brand p {
   margin-top: 2px;
-  font-size: .7rem;
+  font-size: .5 rem;
   font-style: italic;
 
 }
 
 .tagline  {
-  font-size: 1rem;
+  font-size: .7 rem;
   font-weight: bold;
 }
 

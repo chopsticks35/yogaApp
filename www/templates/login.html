@@ -1,0 +1,21 @@
+<ion-view title="Please sign in">
+  <div></div>
+  <div></div>
+  <ion-content has-subheader class="padding">
+    <div class="login-div">
+      <form name="loginForm">
+        <div class="list list-inset">
+          <label class="item item-input">
+            <input required type="text" placeholder="Name" ng-model="user.name">
+          </label>
+          <label class="item item-input">
+            <input required type="password" placeholder="Password" ng-model="user.password">
+          </label>
+        </div>
+      </form>
+      <button class="button button-block button-energized" ng-disabled="!loginForm.$valid" ng-click="login()">Please Login</button>
+      <!--      use ui routing ui-sref to link to register/sign up page-->
+      <!--       or use for clear button - unsure "button button-positive button-clear button-full"-->
+<!--      <button class="button button-block button-dark" ng-disabled="!loginForm.$valid" ui-sref="outside.register">Create Account</button>-->
+  </ion-content>
+</ion-view>

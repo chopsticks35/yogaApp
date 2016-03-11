@@ -3,27 +3,27 @@ var SERVER_SIDE_URL = "https://git.heroku.com/agile-bastion-13984.git"
 
 angular.module('starter', ['ionic'])
 
-  .run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-      // for form inputs)
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-
-      // Don't remove this line unless you know what you are doing. It stops the viewport
-      // from snapping when text inputs are focused. Ionic handles this internally for
-      // a much nicer keyboard experience.
-      cordova.plugins.Keyboard.disableScroll(true);
-    }
-    if(window.StatusBar) {
-      StatusBar.styleDefault();
-    }
-  });
-})
-
+//  .run(function($ionicPlatform) {
+//  $ionicPlatform.ready(function() {
+//    if(window.cordova && window.cordova.plugins.Keyboard) {
+//      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+//      // for form inputs)
+//      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+//
+//      // Don't remove this line unless you know what you are doing. It stops the viewport
+//      // from snapping when text inputs are focused. Ionic handles this internally for
+//      // a much nicer keyboard experience.
+//      cordova.plugins.Keyboard.disableScroll(true);
+//    }
+//    if(window.StatusBar) {
+//      StatusBar.styleDefault();
+//    }
+//  });
+//})
 
   //-----CONFIG - state routing
 .config(function($stateProvider, $urlRouterProvider){
+
   $stateProvider
 //  template called tabs: go get it at this url, but not real page to navigate - abstract true, but rather be a parent template
     .state('tabs', {
@@ -37,7 +37,7 @@ angular.module('starter', ['ionic'])
     url: '/home',
     views: {
       'home-tab': {
-        templateUrl: 'templates/home.html'
+        templateUrl: 'templates/home.html',
       }
     }
   })
@@ -109,13 +109,55 @@ angular.module('starter', ['ionic'])
     }
   })
 
+  // login routing:
+//  $stateProvider
+    .state('outside', {
+    url: '/outside',
+    abstract: true,
+    templateUrl: 'templates/outside.html'
+  })
+    .state('outside.login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'LoginCtrl'
+  })
+    .state('outside.register', {
+    url: '/register',
+    templateUrl: 'templates/register.html',
+    controller: 'RegisterCtrl'
+  })
+    .state('inside', {
+    url: '/inside',
+    templateUrl: 'templates/inside.html',
+    controller: 'InsideCtrl'
+  });
 
 //  default routing back to home page - will load tabs and list navigation
   $urlRouterProvider.otherwise('/tab/home');
+  //  originally: '/tab/home' then /outside/login
+})
+
+//catch stateChangeStart - triggered when change routes - check authentication
+
+  .run(function ($rootScope, $state, AuthService, AUTH_EVENTS) {
+  $rootScope.$on('$stateChangeStart', function (event,next, nextParams, fromState) {
+    if (!AuthService.isAuthenticated()) {
+      console.log(next.name);
+      if (next.name !== 'outside.login' && next.name !== 'outside.register' && next.name !== 'tabs.home') {
+        event.preventDefault();
+        $state.go('tabs.home');
+      }
+    }
+  });
 })
 
 
+
+
 //-----FACTORIES
+
+//login factory
+
 
 //  google hangouts factory
 
@@ -128,15 +170,7 @@ angular.module('starter', ['ionic'])
   .factory('EmailManager', function($q, $http) {
   var self = this;
 
-  /**
-  * Send Email
-  * @mailObj: object with properties
-  *      'senderName'
-  *      'senderEmail'
-  *      'receiverEmail' - preset for my yoga email addess
-  *      'subject'
-  *      'html'
-  */
+  //email format - send email
   self.sendMail = function(mailObj) {
     var qSend = $q.defer();
     $http.post(SERVER_SIDE_URL + "/email/send", mailObj)
@@ -157,11 +191,80 @@ angular.module('starter', ['ionic'])
 })
 
 
+//----- TAB CONTROLLERS
 
-//-----CONTROLLERS
+//login controller
+    .controller('LoginCtrl', function($scope, AuthService, $ionicPopup, $state) {
+    $scope.user = {
+      name: '',
+      password: ''
+    };
+
+    $scope.login = function() {
+      AuthService.login($scope.user).then(function(msg) {
+        $state.go('inside');
+      }, function(errMsg) {
+        var alertPopup = $ionicPopup.alert({
+          title: 'Login failed!',
+          template: errMsg
+        });
+      });
+    };
+  })
+
+    .controller('RegisterCtrl', function($scope, AuthService, $ionicPopup, $state) {
+    $scope.user = {
+      name: '',
+      password: ''
+    };
+
+    $scope.signup = function() {
+      AuthService.register($scope.user).then(function(msg) {
+        $state.go('outside.login');
+        var alertPopup = $ionicPopup.alert({
+          title: 'Register success!',
+          template: msg
+        });
+      }, function(errMsg) {
+        var alertPopup = $ionicPopup.alert({
+          title: 'Register failed!',
+          template: errMsg
+        });
+      });
+    };
+  })
+
+    .controller('InsideCtrl', function($scope, AuthService, API_ENDPOINT, $http, $state) {
+    $scope.destroySession = function() {
+      AuthService.logout();
+    };
+
+    $scope.getInfo = function() {
+      $http.get(API_ENDPOINT.url + '/memberinfo').then(function(result) {
+        $scope.memberinfo = result.data.msg;
+      });
+    };
+
+    $scope.logout = function() {
+      AuthService.logout();
+      $state.go('outside.login');
+    };
+  })
+
+    .controller('AppCtrl', function($scope, $state, $ionicPopup, AuthService, AUTH_EVENTS) {
+    $scope.$on(AUTH_EVENTS.notAuthenticated, function(event) {
+      AuthService.logout();
+      $state.go('outside.login');
+      var alertPopup = $ionicPopup.alert({
+        title: 'Session Lost!',
+        template: 'Sorry, You have to login again.'
+      });
+    });
+  })
+
 
 // hangout controller
-.controller('HangoutController', ['$sce', '$scope', 'hangoutFactory', '$http', '$state', function($sce, $scope, hangoutFactory, $http, $state){
+  .controller('HangoutController', ['$sce', '$scope', 'hangoutFactory', '$http', '$state', function($sce, $scope, hangoutFactory,   $http, $state){
     $http.get('js/data.json').success(function(data){
       $scope.user = data;
       $scope.ShowH = hangoutFactory.ShowH.show;

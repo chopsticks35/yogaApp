@@ -1,0 +1,31 @@
+{
+  "name": "yogaapp-restbackend",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "body-parser": "~1.9.2",
+    "cors": "^2.7.1",
+    "express": "~4.9.8",
+    "jwt-simple": "^0.3.1",
+    "mongoose": "~4.2.4",
+    "morgan": "~1.5.0",
+    "passport": "^0.3.0",
+    "passport-jwt": "^1.2.1"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "description": "Nodejs Authentication Project\r ======================",
+  "version": "1.0.0",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chopsticks35/yogaAppRestBackend.git"
+  },
+  "author": "Ti Wegmeyer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chopsticks35/yogaAppRestBackend/issues"
+  },
+  "homepage": "https://github.com/chopsticks35/yogaAppRestBackend#readme"
+}

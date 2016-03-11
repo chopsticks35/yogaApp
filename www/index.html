@@ -23,22 +23,28 @@
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/constants.js"></script>
   </head>
-  <body ng-app="starter">
+  <body ng-app="starter" >
+
     <ion-nav-bar class="bar-energized">
       <ion-nav-back-button></ion-nav-back-button>
     </ion-nav-bar>
-
-    <ion-nav-view>
+    <!--    ng-controller="AppCtrl" - index serve different views and be controller above all-->
+    <ion-nav-view ng-controller="AppCtrl">
 
       <!--    Google hangouts   -->
 <!--      <ion-footer-bar class="bar-subfooter"><div class="g-hangout" data-render="createhangout"></div></ion-footer-bar>-->
 
+<!--
       <div class="item" ng-controller="HangoutController">
         <div class="g-hangout" data-render="createhangout" ng-show="ShowH.show">
         </div>
         <span class="input-label">Connect with Ti</span>
       </div>
+-->
 
     </ion-nav-view>
   </body>

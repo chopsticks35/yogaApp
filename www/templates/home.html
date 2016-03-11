@@ -6,22 +6,28 @@
     <div class="brand">
       <img src="img/logo.svg" alt="Ti Logo">
       <div class="tagline">On-the-Go-Yoga with Ti</div>
+      <p>Yoga every darn day:  anywhere and anytime!</p>
     </div>
 
 <!--    login form-->
     <div class="login-div">
       <form name="loginForm">
+<!--
         <div class="list list-inset">
           <label class="item item-input">
-            <input required type="text" placeholder="Email" ng-model="data.email">
+            <input required type="text" placeholder="Name" ng-model="user.name">
           </label>
           <label class="item item-input">
-            <input required type="password" placeholder="Password" ng-model="data.password">
+            <input required type="password" placeholder="Password" ng-model="user.password">
           </label>
         </div>
       </form>
-      <button class="button button-block button-energized" ng-disabled="!loginForm.$valid" ng-click="login()">Login</button>
-      <button class="button button-block button-dark" ng-disabled="!loginForm.$valid" ng-click="signUp()">Create Account</button>
+-->
+      <button class="button button-block button-energized" ui-sref="outside.login">Login</button>
+      <!-- was ng-click="login()"-->
+<!--      use ui routing ui-sref to link to register/sign up page-->
+      <!--       or use for clear button - unsure "button button-positive button-clear button-full"-->
+      <button class="button button-block button-dark" ui-sref="outside.register">Create Account</button>
 
   </ion-content>
 </ion-view>

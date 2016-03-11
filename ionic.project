@@ -1,4 +1,10 @@
 {
   "name": "yogaApp",
-  "app_id": "b1536e07"
+  "app_id": "b1536e07",
+  "proxies": [
+  {
+  "path": "/signup",
+  "proxyUrl": "http://127.0.0.1:8080/signup"
+  }
+  ]
 }
