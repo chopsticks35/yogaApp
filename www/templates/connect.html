@@ -1,15 +1,26 @@
-  <ion-view view-title="Connect with Ti">
+  <ion-view view-title="Practice with Ti">
       <ion-content>
 
         <div class="list list-inset">
           <!--          <div class="card">-->
-          <div class="item item-divider">Text, Phone, Email, or Remote Class</div>
-          <div class="item item-image item-body">
-            <img src="img/sundial.jpg" alt="Sundial Pic">
+          <div class="item item-divider">Get Inspired</div>
+
+          <!-- Blab Session    -->
+          <iframe style='max-width: 100%;' src='https://blab.im/ti-thecodingyogini-live-yoga-class-1' frameborder='0' height='480' scrolling='none' width='640'></iframe>
 
           </div>
+
+          <!--    Google hangouts   -->
+
+          <div class="item">
+            <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+            <div class="g-hangout" data-render="createhangout"></div>
+
+            <span class="input-label">Take a Live Class With Ti</span>
+          </div>
           <div class=" quote item item-icon-left item-text-wrap">
-            <p>"True yoga is not about the shape of your body, but the shape of your life.  Yoga is not to be performed; yoga is to be lived. Yoga doesn't care about what you have been; yoga cares about the person you are becoming.  Yoga is designed for a vast and profound purpose, and for it to be truly called yoga, its essence must be embodied."
+            <p>Practice with Ti in a weekly live broadcast -- or schedule a private virtual class in the future!
             </p>
 
           </div>
@@ -18,7 +29,7 @@
               <span class="input-label">First Name</span>
               <input type="text" placeholder="Your first name">
             </label>
-            <!--              also stacked and floating options for label and inset class list-->
+
             <label class="item item-input">
               <span class="input-label">Last Name</span>
               <input type="text" placeholder="Your last name">
@@ -27,93 +38,24 @@
 
           <div class="item item-input-inset">
             <label class="item-input-wrapper">
-              <input type="email" placeholder="enter your email">
-            </label>
-          </div>
-          <!-- text area and check boxes - check boxes can check many vs radio buttons
-<label class="item item-input">
-<textarea placeholder="Your message"></textarea>
-</label>
--->
-          <div class="item item-checkbox checkbox-energized">
-            <label class="checkbox">
-              <input type="checkbox"  >
-            </label>
-            <span class="input-label">Email Ti!</span>
-            <ion-button title="Email" icon="ion-paper-airplane"
-                     href="#/tab/email">
-          </div>
-
-          <!--            toggle button interface-->
-
-          <div class="item item-toggle">
-            <span class="input-label">Receive inspirational texts from Ti</span>
-            <label class="toggle toggle-energized">
-              <input type="checkbox">
-              <div class="track"><div class="handle"></div></div>
+              <input type="email" placeholder="you@email.com">
             </label>
           </div>
 
-          <!--            range example-->
-
-          <div class="item range range-energized">
-            <i class="icon ion-sad-outline"></i>
-            <input type="range" name="feeling" min="0" max="100" value="50">
-            <i class="icon ion-happy"></i>
-          </div>
-
-          <!--            select pop up example-->
-          <label class="item item-input item-select">
-            <span class="input-label">Intention Focus</span>
-            <select>
-              <option>Asana</option>
-              <option>Pranayama</option>
-              <option>Meditation</option>
-              <option>Philosophy</option>
-              <option>Karma Yoga</option>
-            </select>
-
+        <div class="item item-checkbox checkbox-energized">
+          <label class="checkbox">
+            <input type="checkbox">
           </label>
+          <span class="input-label">Contact me to Schedule a Private Class!</span>
+        </div>
+
+
+
           <!--            <div class="item isubmit buttons and item divider as footertem-input">-->
           <button class="button button-full button-energized">Submit</button>
         </div>
 
-<!--    Google hangouts   -->
 
-      <div class="item">
-
-        <!--    google hangout api  -->
-          <script src="https://apis.google.com/js/platform.js" async defer></script>
-
-          <div class="g-hangout" data-render="createhangout"></div>
-          <span class="input-label">Connect with Ti</span>
-      </div>
-
-
-
-        <!-- Tok Box Script  and API-->
-        <div id="myPublisherDiv"></div>
-        <div id="subscribersDiv"></div>
-
-        <script src="//static.opentok.com/v2/js/opentok.min.js"></script>
-        <script>
-          var apiKey = '45509302';
-          var sessionId = '2_MX40NTUwOTMwMn5-MTQ1NjQyMTk1NjI1NX54dDhwc3hKQ1ZkL1Bkd1NmWFJuUElpRUZ-UH4';
-          var token = 'T1==cGFydG5lcl9pZD00NTUwOTMwMiZzaWc9M2M1MWVlOGM4MDNjMzBjODBhOWQ5OWJlYzhhZTQ1NjM1OTcwMWY3MTpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTJfTVg0ME5UVXdPVE13TW41LU1UUTFOalF5TVRrMU5qSTFOWDU0ZERod2MzaEtRMVprTDFCa2QxTm1XRkp1VUVscFJVWi1VSDQmY3JlYXRlX3RpbWU9MTQ1Njk1Njc0MCZub25jZT0wLjkyMTE0ODU3MTM4ODM0OTQmZXhwaXJlX3RpbWU9MTQ1NzA0MzE0MA==';
-          var session = OT.initSession(apiKey, sessionId);
-          session.on({
-            streamCreated: function(event) {
-              session.subscribe(event.stream, 'subscribersDiv', {insertMode: 'append'});
-            }
-          });
-          session.connect(token, function(error) {
-            if (error) {
-              console.log(error.message);
-            } else {
-              session.publish('myPublisherDiv', {width: 320, height: 240});
-            }
-          });
-        </script>
 
         <div class="item item-divider">
           <p>

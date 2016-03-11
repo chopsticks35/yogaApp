@@ -1,11 +1,77 @@
-<ion-view title="Inspiration">
-<ion-content>
-  <div class="item item-toggle">
-    <span class="input-label">Receive inspirational texts from Ti</span>
-    <label class="toggle toggle-energized">
-      <input type="checkbox">
-      <div class="track"><div class="handle"></div></div>
-    </label>
-  </div>
-</ion-content>
-</ion-view>
+<ion-view view-title="Inspiration">
+  <ion-content>
+
+    <div class="list list-inset">
+      <!--          <div class="card">-->
+      <div class="item item-divider">Share the Yoga Love!</div>
+      <div class="item item-image item-body">
+        <img src="img/sundial.jpg" alt="Sundial Pic">
+
+      </div>
+      <div class=" quote item item-icon-left item-text-wrap">
+        <p>"True yoga is not about the shape of your body, but the shape of your life.  Yoga is not to be performed; yoga is to be lived. Yoga doesn't care about what you have been; yoga cares about the person you are becoming.  Yoga is designed for a vast and profound purpose, and for it to be truly called yoga, its essence must be embodied."
+        </p>
+
+      </div>
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">First Name</span>
+          <input type="text" placeholder="Your first name">
+        </label>
+        <!--              also stacked and floating options for label and inset class list-->
+        <label class="item item-input">
+          <span class="input-label">Last Name</span>
+          <input type="text" placeholder="Your last name">
+        </label>
+      </div>
+
+      <div class="item item-input-inset">
+        <label class="item-input">
+          <input type="phone" placeholder=" XXX-XXX-XXX">
+        </label>
+      </div>
+        <!--            toggle button interface-->
+
+        <div class="item item-toggle">
+          <span class="input-label">Recive Inspirational Texts from Ti</span>
+          <label class="toggle toggle-energized">
+            <input type="checkbox">
+            <div class="track"><div class="handle"></div></div>
+          </label>
+        </div>
+
+        <!--            range example-->
+
+        <div class="item range range-energized">
+          <i class="ion-ios-heart"></i>
+          <input type="range" name="inspiration" min="0" max="100" value="50">
+          <i class="ion-ios-flame"></i>
+        </div>
+
+        <!--            select pop up example-->
+        <label class="item item-input item-select">
+          <span class="input-label">Focus</span>
+          <select>
+            <option>Practicing Kindness</option>
+            <option>Living with Grace</option>
+            <option>Inner Peace</option>
+            <option>Self-Motivation</option>
+            <option>Yoga Tips</option>
+          </select>
+
+        </label>
+        <!--            <div class="item isubmit buttons and item divider as footertem-input">-->
+        <button class="button button-full button-energized">Submit</button>
+      </div>
+
+
+      <div class="item item-divider">
+        <p>
+          Copyright &#xA9; 2016 by Ti: The Coding Yogini.  All rights reserved.
+        </p>
+      </div>
+      </ion-content>
+    </ion-view>
+
+
+

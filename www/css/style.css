@@ -12,33 +12,39 @@ body {
   background-size: cover;
 }
 
+
 .brand {
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: center;
 }
+
+
 
 .brand img {
   margin: 0 auto;
   width: 25%;
   max-width: 300px;
-  text-align: center;
+
 }
 
+
+
 .brand p {
-  margin-top: 5px;
-  font-size: .9rem;
+  margin-top: 2px;
+  font-size: .7rem;
   font-style: italic;
 
 }
 
 .tagline  {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
 .tagline h4 {
   color: #fff;
 }
+
 
 /*  Video and Calendar Star background tabs */
 

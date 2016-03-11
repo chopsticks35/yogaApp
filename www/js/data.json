@@ -3,7 +3,7 @@
     {
       "weekday": "Monday",
       "date": "April 4, 2016",
-      "studio": "Oh Yeah Yoga Studio - Augusta, GA",
+      "studio": "Oh Yeah Yoga Studio",
       "schedule": [
         {
           "pic": "buddha",
@@ -22,7 +22,7 @@
     }, {
       "weekday": "Tuesday",
       "date": "April 5, 2016",
-      "studio": "Space Yoga Studio - Augusta, GA",
+      "studio": "Space Yoga Studio",
       "schedule": [
         {
           "pic": "clay",
@@ -47,7 +47,7 @@
     }, {
       "weekday": "Wednesday",
       "date": "April 5, 2016",
-      "studio": "Oxygen Fitness Studio - Augusta, GA",
+      "studio": "Oxygen Fitness Studio",
       "schedule": [
         {
           "pic": "life",
@@ -66,7 +66,7 @@
     }, {
       "weekday": "Thursday",
       "date": "April 5, 2016",
-      "studio": "Evans Fitness Club - Augusta, GA",
+      "studio": "Evans Fitness Club",
       "schedule": [
         {
           "pic": "mermaid",

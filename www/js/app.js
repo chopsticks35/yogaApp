@@ -162,7 +162,7 @@ angular.module('starter', ['ionic'])
 
 // hangout controller
 .controller('HangoutController', ['$sce', '$scope', 'hangoutFactory', '$http', '$state', function($sce, $scope, hangoutFactory, $http, $state){
-    $http.get('js/user.json').success(function(data){
+    $http.get('js/data.json').success(function(data){
       $scope.user = data;
       $scope.ShowH = hangoutFactory.ShowH.show;
 
@@ -187,7 +187,7 @@ angular.module('starter', ['ionic'])
         },
         function(error){
           console.log(error);
-          showMessage('Oooops... something went wrong', 1500);
+          showMessage('Something went wrong - please try again...', 1500);
         }
       );
 
@@ -242,7 +242,7 @@ angular.module('starter', ['ionic'])
 //connect controller
 .controller('ConnectController', ['$sce', '$scope', 'hangoutFactory', '$http', '$state', function($sce, $scope, hangoutFactory, $http, $state){
     $http.get('js/data.json').success(function(data){
-      $scope.users = data; // need to connect to users
+      // need to connect to users ???  $scope.users = data;
       $scope.ShowH = !hangoutFactory.ShowH.show;
 
     })
