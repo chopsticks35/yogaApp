@@ -1,12 +1,15 @@
 //page/view seen once users are logged in  - button to grab info from DB - string with greeting and username
 // also destroy button to show if user looses the token or something
-<ion-view>
-  <ion-header-bar align-title="center" class="bar-energized">
-    <h1 class="title">Member space</h1>
+<ion-view hide-nav-bar="true">
+  <ion-footer-bar align-title="center" class="bar-energized">
+    <h1 class="title">Members</h1>
     <div class="buttons">
       <button class="button button-clear" ng-click="logout()">Logout</button>
     </div>
-  </ion-header-bar>
+    <div class="buttons">
+      <button class="button button-clear" ui-sref="tabs.list">Enter App</button>
+    </div>
+  </ion-footer-bar>
   <ion-content class="padding">
     <div class="card">
       <div class="item item-text-wrap">
@@ -14,10 +17,10 @@
       </div>
     </div>
     <button class="button button-full button-assertive" ng-click="destroySession()">
-      Destroy token
+      Take it back (destroy token)
     </button>
     <button class="button button-full button-balanced" ng-click="getInfo()">
-      Enter the app, Member
+      Get a special message from Ti (view membership)
     </button>
   </ion-content>
 </ion-view>

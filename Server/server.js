@@ -35,8 +35,10 @@ mongoose.connect(config.database);
 
 require('./config/passport')(passport);
 
+//bundle routes
 var apiRoutes = express.Router();
 
+//create new user
 apiRoutes.post('/signup', function(req, res) {
   if (!req.body.name || !req.body.password) {
     res.json({succes: false, msg: 'Please pass name and password.'});
@@ -45,6 +47,7 @@ apiRoutes.post('/signup', function(req, res) {
       name: req.body.name,
       password: req.body.password
     });
+    //save user
     newUser.save(function(err) {
       if (err) {
         res.json({succes: false, msg: 'Username already exists.'});
@@ -55,6 +58,7 @@ apiRoutes.post('/signup', function(req, res) {
   }
 });
 
+//verify user
 apiRoutes.post('/authenticate', function(req, res) {
   User.findOne({
     name: req.body.name
@@ -76,6 +80,9 @@ apiRoutes.post('/authenticate', function(req, res) {
   });
 });
 
+//restricted info - member info - restricted - protected endpoint
+// First check if user is allowed to see this info - add passport and jwt to this route
+//extract from JWT and decode - send grreting to member verifying information
 apiRoutes.get('/memberinfo', passport.authenticate('jwt', {session: false}), function(req, res) {
   var token = getToken(req.headers);
   if (token) {
@@ -88,7 +95,7 @@ apiRoutes.get('/memberinfo', passport.authenticate('jwt', {session: false}), fun
       if (!user) {
         return res.status(403).send({success: false, msg: 'Authentication failed. User not found.'});
       } else {
-        return res.json({success: true, msg: 'Namaste!  Welcome to the member space ' + user.name + '!'});
+        res.json({success: true, msg: 'Welcome ' + user.name + '!  Thanks for signing up for my app: Yoga-on-the-Go-with-Ti and sharing the yoga love!  I look forward to practicing with you.  Please watch the video below to learn how to use my app, or go striaght to it by hitting the Enter App button.  Feel welcome to contact me with any questions or concerns.  Love and light to you, ' + user.name + '.  Namaste!'});
       }
     });
   } else {
@@ -109,6 +116,7 @@ getToken = function(headers) {
   }
 };
 
+//connect api routes under /api
 app.use('/api', apiRoutes);
 
 // Start server
