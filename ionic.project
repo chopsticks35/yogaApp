@@ -3,6 +3,11 @@
   "app_id": "b1536e07",
   "proxies": [
   {
+  "path": "/api",
+  "proxyUrl": "http://127.0.0.1:8080/api"
+  },
+
+  {
   "path": "/signup",
   "proxyUrl": "http://127.0.0.1:8080/signup"
   }
