@@ -12,18 +12,7 @@ var cors        = require('cors');
 // 8080 for sim ???  should I use 3000?
 var jwt         = require('jwt-simple');
 
-
-// app.use(express.static(__dirname + '/public'));
-
-/**   ultimately want to use Express Sessions ????? **/
-//var session = require('express-session')
-//app.sessionMiddleware = session({
-//  secret: 'keyboard cat',
-//  resave: false,
-//  saveUninitialized: true,
-//})
-//app.use(app.sessionMiddleware)
-
+//REST - not using sessions, using JSON Web Token
 
 // get our request parameters
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -36,7 +25,7 @@ app.use(cors())
 // Use passport
 app.use(passport.initialize());
 
-// demo Route (GET http://localhost:8080???)
+// demo Route (GET http://localhost:8080)
 app.get('/', function(req, res) {
   res.send('Ciao yall! API is: http://localhost:' + port + '/api');
 });
