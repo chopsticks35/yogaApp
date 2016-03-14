@@ -13,22 +13,13 @@
         </p>
 
       </div>
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label">First Name</span>
-          <input type="text" placeholder="Your first name">
-        </label>
-        <!--              also stacked and floating options for label and inset class list-->
-        <label class="item item-input">
-          <span class="input-label">Last Name</span>
-          <input type="text" placeholder="Your last name">
-        </label>
-      </div>
+
 
       <div class="item item-input-inset">
         <label class="item-input">
-          <input type="phone" placeholder=" XXX-XXX-XXX">
+          <input type="text" placeholder=" XXX-XXX-XXX" ng-model="msgTo">
         </label>
+<!--         is modeling{{msgTo}}-->
       </div>
         <!--            toggle button interface-->
 
@@ -61,7 +52,7 @@
 
         </label>
         <!--            <div class="item isubmit buttons and item divider as footertem-input">-->
-        <button class="button button-full button-energized">Submit</button>
+      <button class="button button-full button-energized" ng-click="sendMessage()">Submit</button>
       </div>
 
 

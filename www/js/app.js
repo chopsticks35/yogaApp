@@ -105,7 +105,7 @@ angular.module('starter', ['ionic'])
     views: {
       'inspiration-tab': {
         templateUrl: 'templates/inspiration.html',
-//        controller: 'InspireCtrl'
+        controller: 'InspireCtrl'
       }
     }
   })

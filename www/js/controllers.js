@@ -36,8 +36,22 @@ angular.module('starter')
   return self;
 })
 
+// twilio factory
+  .factory('API', function($http) {
+  var api = {};
+  var baseURL = 'http://f3d53b1b.ngrok.io';
 
-  //<------------------------   CONTROLLERS   ------------------------>
+  api.sendMsg = function(to) {
+    return $http.post(baseURL + '/sendmsg', {
+      "to": to
+    });
+  };
+
+  return api;
+})
+
+
+//<------------------------   CONTROLLERS   ------------------------>
 
 //----- TAB CONTROLLERS
 
@@ -189,6 +203,57 @@ angular.module('starter')
   };
 
 })
+
+//inspire controller
+  .controller('InspireCtrl', function($scope, $ionicLoading, $ionicPopup, API) {
+
+  $scope.processing = false;
+
+  $scope.show = function(message) {
+    $ionicLoading.show({
+      template: message
+    });
+  };
+
+  $scope.hide = function() {
+    $ionicLoading.hide();
+  };
+
+  $scope.showAlert = function(msg) {
+    $ionicPopup.alert({
+      title: msg.title,
+      template: msg.message,
+      okText: 'Try again',
+      okType: 'button-assertive'
+    });
+  };
+
+  $scope.sendMessage = function() {
+    $scope.processing = true;
+    $scope.show('Sending Message...');
+    API.sendMsg($scope.msgTo).then(function(data) {
+
+      if (data.data.status == 'success') {
+        $scope.msgTo = '';
+        $scope.showAlert({
+          title: "Success",
+          message: "Message sent successfully"
+        });
+      } else {
+        $scope.showAlert({
+          title: "Oops!!",
+          message: "Oops something went wrong! Please try again later."
+        });
+      }
+      $scope.hide();
+      $scope.processing = false;
+
+    });
+
+  };
+
+})
+
 
 //connect controller
   .controller('ConnectController', ['$sce', '$scope', 'hangoutFactory', '$http', '$state', function($sce, $scope, hangoutFactory, $http, $state){

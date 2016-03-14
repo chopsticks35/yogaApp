@@ -9,10 +9,13 @@ var config      = require('./config/database'); // get db config file
 var User        = require('./app/models/user'); // get the mongoose model
 var port        = process.env.PORT || 8080;
 var cors        = require('cors');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 // 8080 for sim ???  should I use 3000?
 var jwt         = require('jwt-simple');
 
 //REST - not using sessions, using JSON Web Token
+app.use(express.static(__dirname + '/public'));
 
 //Twilio
 
@@ -22,7 +25,7 @@ var jwt         = require('jwt-simple');
 
 //require the Twilio module and create a REST client
 //var client = require('twilio')(accountSid, authToken);
-//
+
 //client.messages.create({
 //  to: "7065047372",
 //  from: "+14108496421",
@@ -38,10 +41,27 @@ app.use(bodyParser.json());
 
 //logger to console
 app.use(morgan('dev'));
+
+//CORS
 app.use(cors())
 
 // Use passport
 app.use(passport.initialize());
+
+//use cookie parser
+app.use(cookieParser());
+
+//CORS headers so client can access data
+var allowCrossDomain = function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+  next();
+};
+
+app.use(allowCrossDomain);
+app.use('/', require('./routes/index'));
 
 // demo Route (GET http://localhost:8080)
 app.get('/', function(req, res) {
@@ -140,3 +160,6 @@ app.use('/api', apiRoutes);
 // Start server
 app.listen(port);
 console.log('Namaste!  You are on: http://localhost:' + port);
+
+//export
+module.exports = app;
