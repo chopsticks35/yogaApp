@@ -14,6 +14,24 @@ var jwt         = require('jwt-simple');
 
 //REST - not using sessions, using JSON Web Token
 
+//Twilio
+
+// Twilio Credentials
+//var accountSid = 'AC3011b00656dff4d3ecf061e8da209f70';
+//var authToken = 'd2b6b2aa9d800bf5d7b78e97860b98c8';
+
+//require the Twilio module and create a REST client
+//var client = require('twilio')(accountSid, authToken);
+//
+//client.messages.create({
+//  to: "7065047372",
+//  from: "+14108496421",
+//  body: "Namaste from Ti!",
+//}, function(err, message) {
+//  console.log(message.sid);
+//});
+
+
 // get our request parameters
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
