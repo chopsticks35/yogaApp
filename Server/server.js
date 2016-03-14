@@ -61,6 +61,8 @@ var allowCrossDomain = function(req, res, next) {
 };
 
 app.use(allowCrossDomain);
+
+//teilio routing
 app.use('/', require('./routes/index'));
 
 // demo Route (GET http://localhost:8080)

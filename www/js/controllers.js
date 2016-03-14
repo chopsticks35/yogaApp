@@ -39,7 +39,7 @@ angular.module('starter')
 // twilio factory
   .factory('API', function($http) {
   var api = {};
-  var baseURL = 'http://f3d53b1b.ngrok.io';
+  var baseURL = 'http://161fd74d.ngrok.io';
 
   api.sendMsg = function(to) {
     return $http.post(baseURL + '/sendmsg', {
@@ -223,7 +223,7 @@ angular.module('starter')
     $ionicPopup.alert({
       title: msg.title,
       template: msg.message,
-      okText: 'Try again',
+      okText: 'Namaste!',
       okType: 'button-assertive'
     });
   };
@@ -233,16 +233,17 @@ angular.module('starter')
     $scope.show('Sending Message...');
     API.sendMsg($scope.msgTo).then(function(data) {
 
+//      need to reconfig and use ng-model
       if (data.data.status == 'success') {
+        $scope.showAlert({
+          title: "Oops!!",
+          message: "Oops something went wrong! Please try again later."
+        });
+      } else {
         $scope.msgTo = '';
         $scope.showAlert({
           title: "Success",
           message: "Message sent successfully"
-        });
-      } else {
-        $scope.showAlert({
-          title: "Oops!!",
-          message: "Oops something went wrong! Please try again later."
         });
       }
       $scope.hide();

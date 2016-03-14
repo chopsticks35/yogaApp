@@ -4,7 +4,7 @@ var msg = {};
 
 msg.sendMsg = function(to, message, callback) {
   client.sendMessage({
-    to: '706-504-7372',
+    to: '7065047372',
     from: '+14108496421', // your Twilio number
     body:"Namaste from Ti!"
     // message - The body of the text message
