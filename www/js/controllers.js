@@ -20,12 +20,12 @@ angular.module('starter')
   self.sendMail = function(mailObj) {
     var qSend = $q.defer();
     $http.post(SERVER_SIDE_URL + "/email/send", mailObj)
-      .success(
+      .error(
       function(response){
         qSend.resolve(response)
       }
     )
-      .error(
+      .success(
       function(error){
         qSend.reject(error);
       }
