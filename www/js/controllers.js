@@ -152,8 +152,8 @@ angular.module('starter')
           initMailData();
         },
         function(error){
-          console.log(error);
-          showMessage('Something went wrong - please try again...', 1500);
+//          console.log(error);
+          showMessage('Something went wrong - please try again...', 2000);
         }
       );
 

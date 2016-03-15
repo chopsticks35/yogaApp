@@ -13,9 +13,9 @@
           </label>
         </div>
       </form>
-      <button class="button button-block button-energized" ng-disabled="!loginForm.$valid" ng-click="login()">Please Login</button>
+      <button class="button button-block button-energized" ion-track-tap="Login" ion-track-data="{ login: 'siteApp'}" ng-disabled="!loginForm.$valid" ng-click="login()">Please Login</button>
       <!--      use ui routing ui-sref to link to register/sign up page-->
-      <button class="button button-positive button-clear button-full" ui-sref="outside.register">Register now!</button>
+      <button class="button button-positive button-clear button-full" ion-track-tap="Register" ion-track-data="{ register: 'siteApp'}" ui-sref="outside.register">Register now!</button>
       <!--       or use for clear button - unsure "button button-positive button-clear button-full"-->
 <!--      <button class="button button-block button-dark" ng-disabled="!loginForm.$valid" ui-sref="outside.register">Create Account</button>-->
   </ion-content>

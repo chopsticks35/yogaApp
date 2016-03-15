@@ -24,7 +24,7 @@
     <ion-refresher on-refresh="refreshList()">
     </ion-refresher>
     <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
-      <ion-item ng-class="{'star':item.star}" ng-repeat="item in videos | filter: query" class="videos item item-thumbnail-left.item-complex item-icon-right item-text-wrap" href="#/tab/list/{{item.vimeoId}}">
+      <ion-item ng-class="{'star':item.star}" on-track-doubletap="View Videos" ion-track-data="videoList" ng-repeat="item in videos | filter: query" class="videos item item-thumbnail-left.item-complex item-icon-right item-text-wrap" href="#/tab/list/{{item.vimeoId}}">
         <!--            PICS    -->
 <!--       <img ng-src="img/{{item.pic}}.jpg" alt="{{item.title}} Pic">-->
         <!--WRONG!!   <source src="img/{{item.pic}}.m4v" type="video/m4v">-->
@@ -36,7 +36,7 @@
 -->
         <!--        THIS WORKS BUT NEED TO STYLE THUMBNAIL and set left-->
         <!--        TEST:     <p>{{item.vimeoId}}</p>-->
-        <iframe ng-src="{{$sce.trustAsResourceUrl(&apos;https://player.vimeo.com/video/&apos; + item.vimeoId)}}" width="100" height="100" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+        <iframe ng-src="{{$sce.trustAsResourceUrl(&apos;https://player.vimeo.com/video/&apos; + item.vimeoId)}}" width="100" height="100" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen on-track-doubletap="View Videos" ion-track-data="videoList"></iframe>
         <p><a href="https://vimeo.com/157349623"></a><a href="https://vimeo.com/user49530969"></a><a href="https://vimeo.com"></a></p>
 
         <div class="video-text">
@@ -48,11 +48,11 @@
         </div>
 
         <!--        favorites star button  -->
-        <button class="button button-clear icon ion-star button-energized" ng-click="toggleStar(item)" ng-show="item.star"></button>
+        <button class="button button-clear icon ion-star button-energized" ion-track-tap="Star" ion-track-data="{ star: 'Videos'}" ng-click="toggleStar(item)" ng-show="item.star"></button>
         <!--            favorites swipe button  -->
-        <ion-option-button class="button-energized" ng-click="toggleStar(item)"><i class="icon ion-star"></i></ion-option-button>
+        <ion-option-button class="button-energized" ng-click="toggleStar(item)" ion-track-tap="Star" ion-track-data="{ star: 'Videos'}"><i class="icon ion-star"></i></ion-option-button>
         <!--            delete button -->
-        <ion-delete-button class="icon ion-trash-a" ng-click="deleteItem(item)"></ion-delete-button>
+        <ion-delete-button class="icon ion-trash-a" ng-click="deleteItem(item)"ion-track-tap="Delete" ion-track-data="{ delete: 'Videos'}"></ion-delete-button>
         <!--             reorder button -->
         <ion-reorder-button class="icon ion-shuffle" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
       </ion-item>
