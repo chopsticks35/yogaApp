@@ -234,18 +234,18 @@ angular.module('starter')
         "exp_month": _cardInformation.exp_month,
         "exp_year": _cardInformation.exp_year,
         "cvc": '123',
-        "name": "Aaron Saunders"
+        "name": "Ti Wegmeyer"
       },
       description: "Stripe Test Charge"
     },
-                          function(response) {
-      console.log(JSON.stringify(response, null, 2));
-      alert(JSON.stringify(response, null, 2));
+      function(response) {
+        console.log(JSON.stringify(response, null, 2));
+        alert(JSON.stringify(response, null, 2));
     },
-                          function(response) {
-      alert(JSON.stringify(response))
+      function(response) {
+        alert(JSON.stringify(response))
     } // error handler
-                         );
+    );
   }
 })
 

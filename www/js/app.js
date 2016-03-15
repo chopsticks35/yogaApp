@@ -5,7 +5,7 @@ var SERVER_SIDE_URL = "https://git.heroku.com/agile-bastion-13984.git"
 var SERVER_SIDE_URL             = "sk_test_bX9d0AXPcjHqw2ThDGy9CikX";
 var STRIPE_API_PUBLISHABLE_KEY  = "pk_test_CM0AzwaTpaHo9lv9kZqL1NWV";
 
-angular.module('starter', ['ionic', 'credit-cards'])
+angular.module('starter', ['ionic','ionic.service.core', 'ionic.service.analytics', 'credit-cards'])
 
 //preset run from ionic - changed run below
 //  .run(function($ionicPlatform) {
@@ -168,8 +168,10 @@ angular.module('starter', ['ionic', 'credit-cards'])
   });
 })
 
-  .run(function($ionicPlatform) {
+  .run(function($ionicPlatform, $ionicAnalytics) {
   $ionicPlatform.ready(function() {
+
+    $ionicAnalytics.register();
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
