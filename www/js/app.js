@@ -23,6 +23,7 @@ angular.module('starter', ['ionic', 'credit-cards'])
 //    if(window.StatusBar) {
 //      StatusBar.styleDefault();
 //    }
+//
 //  });
 //})
 
@@ -34,7 +35,7 @@ angular.module('starter', ['ionic', 'credit-cards'])
     .state('donate', {
     url: '/donate',
     templateUrl: 'templates/donate.html',
-//    controller: 'DonateCtrl'
+    controller: 'DonateCtrl'
 
   })
 
@@ -165,6 +166,59 @@ angular.module('starter', ['ionic', 'credit-cards'])
       }
     }
   });
+})
+
+  .run(function($ionicPlatform) {
+  $ionicPlatform.ready(function() {
+    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+    // for form inputs)
+    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+
+    }
+    if (window.StatusBar) {
+      StatusBar.styleDefault();
+    }
+
+
+//    console.log("window.stripe ", window.stripe);
+    //alert(window.stripe);
+
+    //createCharge()
+  })
+
+  function testStripe() {
+    // https://stripe.com/docs/api#list_customers
+    stripe.customers.list({
+      limit: "2" // both value as string and number are supported
+    },
+  function(response) {
+      console.log(JSON.stringify(response, null, 2));
+
+      createCustomer();
+    },
+  function(response) {
+      alert(JSON.stringify(response))
+    } // error handler
+                         );
+  }
+
+
+  function createCustomer() {
+    // creating a customer: https://stripe.com/docs/api#create_customer
+    stripe.customers.create({
+      description: "Ti Wegmeyer",
+      email: "tiwegmeyeryoga@gmail.com.com"
+    },
+  function(response) {
+      alert("Customer created:\n\n" + JSON.stringify(response))
+      console.log(JSON.stringify(response, null, 2))
+    },
+  function(response) {
+      alert(JSON.stringify(response))
+    } // error handler
+                           );
+  }
 })
 
 

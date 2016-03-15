@@ -1,6 +1,5 @@
 <ion-view view-title="Donate">
 
-
     <ion-content class="ion-list">
       <form name="paymentForm" class="padding" ng-submit="makeStripePayment(card)">
 
@@ -31,7 +30,8 @@
           </div>
         </label>
         <div class="padding">
-          <button type="submit" ng-disabled="paymentForm.$invalid" class="button button-block button-positive">DONATE</button>
+          <button type="submit" ng-disabled="paymentForm.$invalid" class="button button-block button-energized">DONATE</button>
+          <button class="button button-positive button-clear button-full" ui-sref="tabs.connect">Back</button>
         </div>
         <!--
 <p ng-show="paymentForm.cardNumber.$error.ccNumberType">That's not a valid {{card.cardType}}</p>

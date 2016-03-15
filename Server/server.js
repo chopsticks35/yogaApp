@@ -15,7 +15,8 @@ var bodyParser = require('body-parser');
 var jwt         = require('jwt-simple');
 
 //REST - not using sessions, using JSON Web Token
-app.use(express.static(__dirname + '/public'));
+//app.use(express.static(__dirname + '/public'));
+app.use(express.static('../www/'));
 
 //Twilio
 
@@ -67,7 +68,10 @@ app.use('/', require('./routes/index'));
 
 // demo Route (GET http://localhost:8080)
 app.get('/', function(req, res) {
-  res.send('Ciao yall! API is: http://localhost:' + port + '/api');
+//  res.send('Ciao yall! API is: http://localhost:' + port + '/api');
+  res.sendFile('index.html', {
+    root:'../www/'
+  });
 });
 
 //connect and require passport

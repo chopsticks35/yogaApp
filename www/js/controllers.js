@@ -135,6 +135,7 @@ angular.module('starter')
     })
   }])
 
+// email controller
   .controller('DashCtrl', function($scope, $ionicLoading, $timeout, EmailManager) {
 
   // send email, use as input $scope.MailData
@@ -203,6 +204,51 @@ angular.module('starter')
   };
 
 })
+
+  .controller('DonateCtrl', function($scope) {
+  $scope.cardType = {};
+  $scope.card = {};
+
+  $scope.makeStripePayment = makeStripePayment;
+
+
+  /**
+     */
+  function makeStripePayment(_cardInformation) {
+
+    if (!window.stripe) {
+      alert("stripe plugin not installed");
+      return;
+    }
+
+    if (!_cardInformation) {
+      alert("Invalid Card Data");
+      return;
+    }
+    stripe.charges.create({
+      // amount is in cents so * 100
+      amount: _cardInformation.amount * 100,
+      currency: 'usd',
+      card: {
+        "number": _cardInformation.number,
+        "exp_month": _cardInformation.exp_month,
+        "exp_year": _cardInformation.exp_year,
+        "cvc": '123',
+        "name": "Aaron Saunders"
+      },
+      description: "Stripe Test Charge"
+    },
+                          function(response) {
+      console.log(JSON.stringify(response, null, 2));
+      alert(JSON.stringify(response, null, 2));
+    },
+                          function(response) {
+      alert(JSON.stringify(response))
+    } // error handler
+                         );
+  }
+})
+
 
 //inspire controller
   .controller('InspireCtrl', function($scope, $ionicLoading, $ionicPopup, API) {
