@@ -7,7 +7,7 @@ var mongoose    = require('mongoose');
 var passport    = require('passport');
 var config      = require('./config/database'); // get db config file
 var User        = require('./app/models/user'); // get the mongoose model
-var port        = process.env.PORT || 8080;
+var port        = process.env.PORT || 80;
 var cors        = require('cors');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -16,7 +16,7 @@ var jwt         = require('jwt-simple');
 
 //REST - not using sessions, using JSON Web Token
 //app.use(express.static(__dirname + '/public'));
-app.use(express.static('../www/'));
+app.use(express.static(__dirname +'/../www/'));
 
 //Twilio
 
@@ -70,7 +70,7 @@ app.use('/', require('./routes/index'));
 app.get('/', function(req, res) {
 //  res.send('Ciao yall! API is: http://localhost:' + port + '/api');
   res.sendFile('index.html', {
-    root:'../www/'
+    root: __dirname +'/../www/'
   });
 });
 
