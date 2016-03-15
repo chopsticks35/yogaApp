@@ -1,7 +1,11 @@
 // NodeMailer-Mailgun Server-Side
 var SERVER_SIDE_URL = "https://git.heroku.com/agile-bastion-13984.git"
 
-angular.module('starter', ['ionic'])
+//Stripe keys
+var SERVER_SIDE_URL             = "sk_test_bX9d0AXPcjHqw2ThDGy9CikX";
+var STRIPE_API_PUBLISHABLE_KEY  = "pk_test_CM0AzwaTpaHo9lv9kZqL1NWV";
+
+angular.module('starter', ['ionic', 'credit-cards'])
 
 //preset run from ionic - changed run below
 //  .run(function($ionicPlatform) {
@@ -26,6 +30,15 @@ angular.module('starter', ['ionic'])
 .config(function($stateProvider, $urlRouterProvider){
 
   $stateProvider
+
+    .state('donate', {
+    url: '/donate',
+    templateUrl: 'templates/donate.html',
+//    controller: 'DonateCtrl'
+
+  })
+
+
 //  template called tabs: go get it at this url, but not real page to navigate - abstract true, but rather be a parent template
     .state('tabs', {
       url: '/tab',

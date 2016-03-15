@@ -21,7 +21,15 @@
     "gulp-util": "^2.2.14",
     "shelljs": "^0.3.0"
   },
-  "cordovaPlugins": [],
+  "cordovaPlugins": [
+    {
+      "variables": {
+        "API_KEY": "sk_test_bX9d0AXPcjHqw2ThDGy9CikX"
+      },
+      "locator": "https://github.com/Telerik-Verified-Plugins/Stripe",
+      "id": "com.telerik.stripe"
+    }
+  ],
   "cordovaPlatforms": [
     "ios"
   ]
