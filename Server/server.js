@@ -7,7 +7,7 @@ var mongoose    = require('mongoose');
 var passport    = require('passport');
 var config      = require('./config/database'); // get db config file
 var User        = require('./app/models/user'); // get the mongoose model
-var port        = process.env.PORT || 80;
+var port        = process.env.PORT || 8080;
 var cors        = require('cors');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -16,24 +16,7 @@ var jwt         = require('jwt-simple');
 
 //REST - not using sessions, using JSON Web Token
 //app.use(express.static(__dirname + '/public'));
-app.use(express.static(__dirname +'/../www/'));
-
-//Twilio
-
-// Twilio Credentials
-//var accountSid = 'AC3011b00656dff4d3ecf061e8da209f70';
-//var authToken = 'd2b6b2aa9d800bf5d7b78e97860b98c8';
-
-//require the Twilio module and create a REST client
-//var client = require('twilio')(accountSid, authToken);
-
-//client.messages.create({
-//  to: "7065047372",
-//  from: "+14108496421",
-//  body: "Namaste from Ti!",
-//}, function(err, message) {
-//  console.log(message.sid);
-//});
+app.use(express.static(__dirname + '/../www/'));
 
 
 // get our request parameters
@@ -63,7 +46,7 @@ var allowCrossDomain = function(req, res, next) {
 
 app.use(allowCrossDomain);
 
-//teilio routing
+//twilio routing
 app.use('/', require('./routes/index'));
 
 // demo Route (GET http://localhost:8080)

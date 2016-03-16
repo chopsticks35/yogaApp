@@ -6,8 +6,7 @@ msg.sendMsg = function(to, message, callback) {
   client.sendMessage({
     to: '7065047372',
     from: '+14108496421', // your Twilio number
-    body:"Namaste from Ti!"
-    // message - The body of the text message
+    body: 'Namaste, from Ti!' // The body of the text message
   }, function(error, message) {
     // Log the response to DiskDB for auditing purposes
     if (error) {
@@ -21,8 +20,8 @@ msg.sendMsg = function(to, message, callback) {
         "message": message
       });
     }
-    callback(error, message);
-  });
-};
+    callback
+  })
+}
 
 module.exports = msg;
