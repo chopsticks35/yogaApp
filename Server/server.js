@@ -87,6 +87,7 @@ apiRoutes.post('/signup', function(req, res) {
 
 //verify user
 apiRoutes.post('/authenticate', function(req, res) {
+  console.log(' line 90',  req.body)
   User.findOne({
     name: req.body.name
   }, function(err, user) {

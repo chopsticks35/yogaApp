@@ -5,8 +5,9 @@ var msg = {};
 msg.sendMsg = function(to, message, callback) {
   client.sendMessage({
     to: '7065047372',
-    from: '+14108496421', // your Twilio number
-    body: 'Namaste, from Ti!' // The body of the text message
+    from: '+14108496421',
+    body: 'When you own your breath, nobody can steal your peace...Namaste, from Ti!',
+
   }, function(error, message) {
     // Log the response to DiskDB for auditing purposes
     if (error) {
