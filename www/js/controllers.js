@@ -39,7 +39,7 @@ angular.module('starter')
 // twilio factory
   .factory('API', function($http) {
   var api = {};
-  var baseURL = 'http://d0ce9f6d.ngrok.io';
+  var baseURL = 'http://a6cf9eeb.ngrok.io';
 
   api.sendMsg = function(to) {
     return $http.post(baseURL + '/sendmsg', {
