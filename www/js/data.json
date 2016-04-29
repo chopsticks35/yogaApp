@@ -1,28 +1,28 @@
 {
   "calendar": [
     {
-      "weekday": "Monday",
-      "date": "April 4, 2016",
-      "studio": "Oh Yeah Yoga Studio",
+      "weekday": "Saturday",
+      "date": "April 30, 2016",
+      "studio": "CAC Tabor Center",
       "schedule": [
         {
           "pic": "buddha",
-          "time": "9:30-10:30am",
+          "time": "1:00-2:15pm",
           "room": "Main Studio",
-          "style": "Power Vinyasa",
+          "style": "Integrated Vinyasa",
           "description": "All levels, heated flow"
         }, {
           "pic": "calm",
-          "time": "12:30-1:30pm",
+          "time": "5:30-6:30pm",
           "room": "Main Studio",
-          "style": "Lunch Break",
-          "description": "All levels, 45 min flow"
+          "style": "Power Vinyasa",
+          "description": "All levels evening flow"
         }
       ]
     }, {
-      "weekday": "Tuesday",
-      "date": "April 5, 2016",
-      "studio": "Space Yoga Studio",
+      "weekday": "Sunday",
+      "date": "May 1, 2016",
+      "studio": "CAC Union Station",
       "schedule": [
         {
           "pic": "clay",
@@ -46,8 +46,8 @@
       ]
     }, {
       "weekday": "Wednesday",
-      "date": "April 5, 2016",
-      "studio": "Oxygen Fitness Studio",
+      "date": "May 4, 2016",
+      "studio": "CAC DTC",
       "schedule": [
         {
           "pic": "life",
@@ -65,8 +65,8 @@
       ]
     }, {
       "weekday": "Thursday",
-      "date": "April 5, 2016",
-      "studio": "Evans Fitness Club",
+      "date": "May 5, 2016",
+      "studio": "CAC Tabor Center",
       "schedule": [
         {
           "pic": "mermaid",
