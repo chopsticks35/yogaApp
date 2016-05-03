@@ -1,8 +1,8 @@
 {
   "calendar": [
     {
-      "weekday": "Saturday",
-      "date": "April 30, 2016",
+      "weekday": "Wednesday",
+      "date": "May 4, 2016",
       "studio": "CAC Tabor Center",
       "schedule": [
         {
@@ -20,8 +20,8 @@
         }
       ]
     }, {
-      "weekday": "Sunday",
-      "date": "May 1, 2016",
+      "weekday": "Saturday",
+      "date": "May 7, 2016",
       "studio": "CAC Union Station",
       "schedule": [
         {
@@ -45,8 +45,8 @@
         }
       ]
     }, {
-      "weekday": "Wednesday",
-      "date": "May 4, 2016",
+      "weekday": "Sunday",
+      "date": "May 8, 2016",
       "studio": "CAC DTC",
       "schedule": [
         {
@@ -64,9 +64,9 @@
         }
       ]
     }, {
-      "weekday": "Thursday",
-      "date": "May 5, 2016",
-      "studio": "CAC Tabor Center",
+      "weekday": "Monday",
+      "date": "May 9, 2016",
+      "studio": "CAC Downtown",
       "schedule": [
         {
           "pic": "mermaid",
